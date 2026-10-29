@@ -258,6 +258,25 @@ input[type=range]{width:100%;accent-color:var(--gold);height:28px}
   .reels .reel{flex:0 0 72%;scroll-snap-align:center}
 }
 
+
+/* скидки и розыгрыш */
+.perks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.perk{border-radius:26px;padding:30px 28px;background:var(--plate);display:grid;gap:10px;align-content:start;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.perk .big{font-family:var(--display);font-weight:800;font-size:clamp(44px,5vw,64px);line-height:1;color:var(--silver-1)}
+.perk.gold{background:linear-gradient(150deg,#3A2E1A,#221E18 65%);box-shadow:inset 0 1px 0 rgba(231,203,140,.28)}
+.perk.gold .big{background:var(--goldmetal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.perk h3{font-size:21px}
+.perk .tg{justify-self:start;margin-top:6px;font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none;padding:12px 20px;border-radius:13px;background:var(--plate-2);color:var(--text);transition:background .3s}
+.perk .tg:hover{background:#36332E}
+.perk p:not(.big){color:var(--soft)}
+.prize{margin-top:18px;border-radius:28px;padding:26px 32px;display:grid;grid-template-columns:140px 1fr;gap:28px;align-items:center;
+  background:radial-gradient(90% 140% at 0% 50%,rgba(201,164,94,.22),transparent 60%),var(--plate);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.prize img{width:140px;height:140px;object-fit:cover;border-radius:50%;-webkit-mask-image:radial-gradient(circle,#000 55%,transparent 72%);mask-image:radial-gradient(circle,#000 55%,transparent 72%);animation:floaty 7s ease-in-out infinite}
+.prize .tag{font-family:var(--display);font-size:15px;color:var(--gold-hi)}
+.prize h3{font-size:clamp(22px,3vw,30px);margin:4px 0 8px}
+.prize p:not(.tag){color:var(--soft)}
+@media (max-width:860px){.perks{grid-template-columns:1fr}.prize{grid-template-columns:1fr;justify-items:start}.prize img{width:110px;height:110px}}
+
 /* ФОРМАТ И РАСХОДЫ */
 .spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
 .sheet{border-radius:24px;background:var(--plate);padding:30px 32px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
@@ -339,7 +358,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   <a class="hide-sm" href="#programma">Программа</a>
   <a class="hide-sm" href="#raboty">Работы</a>
   <a class="hide-sm" href="#tarify">Тарифы</a>
-  <a class="go" href="#zapis">Записаться</a>
+  <a class="go" href="#zapis">Предзапись</a>
 </nav>
 
 <header class="hero" id="top">
@@ -350,7 +369,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     <p class="offer">Как делать <b>150 рилс в месяц</b> и платить за каждый <b>75 ₽</b>, а не 1&nbsp;500&nbsp;₽ монтажёру</p>
     <p class="lead">ИИ монтирует сам, пока ты занимаешься своими делами. Без съёмки и без ручного монтажа.</p>
     <div class="row">
-      <a class="btn" href="#tarify">Выбрать тариф
+      <a class="btn" href="#zapis">Встать в предзапись
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <p class="free"><b>7 уроков</b> · практика с первого дня</p>
     </div>
@@ -589,18 +608,35 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
           <tr><td>Настройка на твоём компьютере вместе</td><td class="no">—</td><td class="mid no">—</td><td class="yes">✓</td></tr>
           <tr><td>Мой личный разбор твоей страницы</td><td class="no">—</td><td class="mid no">—</td><td class="yes">✓</td></tr>
         </tbody>
-        <tfoot><tr><td></td><td><a href="#zapis">Записаться</a></td><td class="mid"><a href="#zapis">Записаться</a></td><td><a href="#zapis">Записаться</a></td></tr></tfoot>
+        <tfoot><tr><td></td><td><a href="#zapis">В предзапись</a></td><td class="mid"><a href="#zapis">В предзапись</a></td><td><a href="#zapis">В предзапись</a></td></tr></tfoot>
       </table>
     </div>
     <div class="plans-sm">
       <div class="plan-sm"><p class="t">Сама</p><p class="p">5 990 ₽</p><p class="w">Привыкла разбираться сама</p>
-        <ul><li>7 уроков и папка-набор</li><li>шаблоны паспорта и таблицы конкурентов</li><li>доступ 3 месяца</li></ul><a href="#zapis">Записаться</a></div>
+        <ul><li>7 уроков и папка-набор</li><li>шаблоны паспорта и таблицы конкурентов</li><li>доступ 3 месяца</li></ul><a href="#zapis">В предзапись</a></div>
       <div class="plan-sm mid"><p class="t">С поддержкой</p><p class="p">12 900 ₽</p><p class="w">Важно не застрять</p>
-        <ul><li>всё из тарифа «Сама»</li><li>чат сестёр на 3 недели</li><li>разбор домашних заданий</li><li>2 эфира с ответами</li></ul><a href="#zapis">Записаться</a></div>
+        <ul><li>всё из тарифа «Сама»</li><li>чат сестёр на 3 недели</li><li>разбор домашних заданий</li><li>2 эфира с ответами</li></ul><a href="#zapis">В предзапись</a></div>
       <div class="plan-sm"><p class="t">Под ключ</p><p class="p">29 900 ₽</p><p class="w">Хочешь сразу делать ролики</p>
-        <ul><li>всё из тарифа «С поддержкой»</li><li>настраиваем всё на твоём компьютере вместе</li><li>мой личный разбор твоей страницы</li></ul><a href="#zapis">Записаться</a></div>
+        <ul><li>всё из тарифа «С поддержкой»</li><li>настраиваем всё на твоём компьютере вместе</li><li>мой личный разбор твоей страницы</li></ul><a href="#zapis">В предзапись</a></div>
     </div>
     <p class="choose rise">Уверенно пользуешься компьютером, бери «Сама». Боишься застрять на установке, бери «С поддержкой». Хочешь, чтобы всё настроили за тебя, бери «Под ключ».</p>
+  </div>
+</section>
+
+
+<section id="bonusy">
+  <div class="wrap">
+    <div class="head rise"><h2>Хочешь заплатить меньше?</h2><p>Выбери один из способов и напиши мне о нём в Telegram.</p></div>
+    <div class="perks rise">
+      <div class="perk"><p class="big">−10%</p><h3>Расскажи о курсе</h3><p>Поделись интенсивом в своей соцсети и пришли мне скрин в личку.</p></div>
+      <div class="perk"><p class="big">½</p><h3>Приведи подругу</h3><p>Заходите вдвоём, и каждая платит половину. Например, «С поддержкой» по 6&nbsp;450&nbsp;₽ вместо 12&nbsp;900&nbsp;₽.</p></div>
+      <div class="perk gold"><p class="big">0 ₽</p><h3>Приведи двух подруг</h3><p>Подруги оплачивают своё обучение, а тебе интенсив бесплатно.</p></div>
+      <div class="perk barter"><p class="big">⇄</p><h3>Предложи бартер</h3><p>Хочешь совсем бесплатно? Предложи, что можешь дать взамен: рекламу у себя, коллаборацию, свои услуги. Рассмотрю каждое предложение.</p><a class="tg" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BD%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%20%C2%AB%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D0%B1%D0%B5%D0%B7%20%D0%BC%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%D0%B0%C2%BB%20%D0%BF%D0%BE%20%D0%B1%D0%B0%D1%80%D1%82%D0%B5%D1%80%D1%83.%20%D0%9C%D0%BE%D0%B3%D1%83%20%D0%BF%D1%80%D0%B5%D0%B4%D0%BB%D0%BE%D0%B6%D0%B8%D1%82%D1%8C%3A%20" target="_blank" rel="noopener">Предложить бартер</a></div>
+    </div>
+    <div class="prize rise">
+      <img src="img/zvezda.jpg" alt="" loading="lazy">
+      <div><p class="tag">Розыгрыш для участниц</p><h3>Подписка Claude Max на месяц</h3><p>Среди всех участниц интенсива разыграю подписку Claude Max за $100. Это та самая нейросеть, с которой ты будешь монтировать.</p></div>
+    </div>
   </div>
 </section>
 
@@ -608,10 +644,10 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   <div class="wrap">
     <img class="hero-img" src="img/hijab.jpg" alt="" loading="lazy">
     <p class="salam">Ассалам алейкум, сестра</p>
-    <h2>Напиши мне в Telegram</h2>
-    <a class="btn" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%20%C2%AB%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D0%B1%D0%B5%D0%B7%20%D0%BC%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%D0%B0%C2%BB" target="_blank" rel="noopener">Записаться в Telegram
+    <h2>Встань в предзапись</h2>
+    <a class="btn" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B2%20%D0%BF%D1%80%D0%B5%D0%B4%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C%20%D0%BD%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%20%C2%AB%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D0%B1%D0%B5%D0%B7%20%D0%BC%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%D0%B0%C2%BB" target="_blank" rel="noopener">Встать в предзапись
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    <p>Нажми кнопку: откроется чат с <a class="handle" href="https://t.me/O_official" target="_blank" rel="noopener">@O_official</a> и готовым сообщением «Ассаламу алейкум! Хочу записаться на интенсив». Останется только отправить.</p>
+    <p>Первой узнаешь дату старта и цены предзаписи. Нажми кнопку: откроется чат с <a class="handle" href="https://t.me/O_official" target="_blank" rel="noopener">@O_official</a> и готовым сообщением «Хочу в предзапись». Останется только отправить.</p>
   </div>
   <div class="mark" aria-hidden="true">Медина</div>
 </section>
