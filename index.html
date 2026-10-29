@@ -235,7 +235,8 @@ input[type=range]{width:100%;accent-color:var(--gold);height:28px}
 
 
 /* готовые работы */
-.reels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.reels{display:flex;flex-wrap:wrap;justify-content:center;gap:22px}
+.reels .reel{flex:0 1 calc((100% - 44px)/3)}
 .reel{margin:0;display:grid;gap:12px}
 .rv{position:relative;aspect-ratio:9/16;border-radius:26px;overflow:hidden;padding:6px;background:var(--metal);background-size:300% 100%;
   box-shadow:0 30px 60px -30px rgba(0,0,0,.95);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
@@ -250,9 +251,9 @@ input[type=range]{width:100%;accent-color:var(--gold);height:28px}
 .reel figcaption b{font-family:var(--display);font-size:18px}
 .reel figcaption span{color:var(--soft);font-size:15px}
 @media (max-width:860px){
-  .reels{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
+  .reels{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-inline:-20px;padding-inline:20px;scrollbar-width:none}
   .reels::-webkit-scrollbar{display:none}
-  .reel{scroll-snap-align:center}
+  .reels .reel{flex:0 0 72%;scroll-snap-align:center}
 }
 
 /* ФОРМАТ И РАСХОДЫ */
@@ -420,17 +421,12 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
 
 <section id="raboty">
   <div class="wrap">
-    <div class="head rise"><h2>Готовые работы</h2><p>Все эти рилс собраны с ИИ, без монтажёра. Шесть разных стилей: на интенсиве научишься делать каждый.</p></div>
+    <div class="head rise"><h2>Готовые работы</h2><p>Все эти рилс собраны с ИИ, без монтажёра. Пять разных стилей: на интенсиве научишься делать каждый.</p></div>
     <div class="reels rise">
       <figure class="reel">
         <div class="rv"><video src="reels/ideal.mp4" poster="reels/ideal.jpg" muted loop playsinline preload="none"></video>
           <button type="button" class="snd" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path class="w" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
-        <figcaption><b>Живые кадры</b><span>Подарки, розы и экран, который разбивается как стекло</span></figcaption>
-      </figure>
-      <figure class="reel">
-        <div class="rv"><video src="reels/ozhid.mp4" poster="reels/ozhid.jpg" muted loop playsinline preload="none"></video>
-          <button type="button" class="snd" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path class="w" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
-        <figcaption><b>Кадры, созданные ИИ</b><span>«Как я представляла» и «как получилось»</span></figcaption>
+        <figcaption><b>Из ваших кадров</b><span>Загружаете на компьютер любые свои фото и видео, хоть целую папку с телефона, и даёте сценарий. Через 10 минут готов рилс с моушен-анимацией и озвучкой. Не хватает кадров — ИИ создаст недостающие.</span></figcaption>
       </figure>
       <figure class="reel">
         <div class="rv"><video src="reels/put.mp4" poster="reels/put.jpg" muted loop playsinline preload="none"></video>
@@ -443,9 +439,9 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
         <figcaption><b>Бумажный театр</b><span>Вырезанная бумага и свет</span></figcaption>
       </figure>
       <figure class="reel">
-        <div class="rv"><video src="reels/god.mp4" poster="reels/god.jpg" muted loop playsinline preload="none"></video>
+        <div class="rv"><video src="reels/asr.mp4" poster="reels/asr.jpg" muted loop playsinline preload="none"></video>
           <button type="button" class="snd" aria-label="Включить звук"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path class="w" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
-        <figcaption><b>Человечки</b><span>Героини в хиджабе вместо людей</span></figcaption>
+        <figcaption><b>Человечки</b><span>Сура «Аль-Аср»: героиня в хиджабе борется со стрелкой часов</span></figcaption>
       </figure>
       <figure class="reel">
         <div class="rv"><video src="reels/poteri.mp4" poster="reels/poteri.jpg" muted loop playsinline preload="none"></video>
