@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>Как начать с ИИ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;800&display=swap">
+<style>
+/* Тот же мир, что у сайта «Рилс без лица»: ночной графит, металл, приглушённое золото.
+   Layout: одна колонка для чтения с телефона (~720px), шаги сверху вниз, запросы в металлических плитах с кнопкой «Скопировать».
+   Шрифты: Tektur (заголовки) + system-ui (текст). Одна тёмная тема намеренно. */
+:root{
+  --night:#0F0F0E; --plate:#211F1C; --plate-2:#2A2824; --well:#171614;
+  --text:#EDEAE3; --soft:#A7A398; --dim:#6F6C64;
+  --silver-1:#F4F3F0; --silver-2:#A9ABAF; --silver-3:#5C5E62;
+  --gold:#C9A45E; --gold-hi:#E7CB8C; --gold-deep:#8C6A2E; --warn:#E3A57E;
+  --display:"Tektur","Arial Narrow",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --metal:linear-gradient(115deg,var(--silver-3) 0%,var(--silver-1) 22%,var(--silver-2) 40%,var(--silver-1) 58%,var(--silver-3) 80%,var(--silver-2) 100%);
+  --goldmetal:linear-gradient(115deg,var(--gold-deep) 0%,var(--gold-hi) 30%,var(--gold) 55%,var(--gold-hi) 75%,var(--gold-deep) 100%);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--night);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header,main,footer{position:relative;z-index:1}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0;font-weight:700}
+h2{font-size:clamp(24px,4.4vw,32px)}
+h3{font-size:17px}
+p{margin:0}
+a{color:var(--gold-hi)}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+section{padding-block:56px;display:grid;gap:18px}
+.step{font-family:var(--display);font-size:15px;font-weight:500;color:var(--gold-hi)}
+
+header{background:radial-gradient(120% 90% at 50% 120%,#3A2E1C 0%,#1C1812 40%,var(--night) 75%);overflow:hidden}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(15,15,14,0),var(--night));pointer-events:none}
+header .wrap{padding-block:72px 64px;display:grid;gap:18px}
+header .hi{font-family:var(--display);color:var(--gold-hi)}
+header h1{font-size:clamp(44px,10vw,80px);font-weight:800;letter-spacing:-.02em;text-transform:uppercase;line-height:.95}
+header h1 span{background:var(--metal);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+header p.lead{font-size:19px;max-width:38ch;color:var(--soft)}
+.meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:6px;font-family:var(--display);font-size:15px;color:var(--soft)}
+.meta b{color:var(--text);font-size:22px;margin-right:6px}
+
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border-radius:20px;overflow:hidden}
+.tool{background:var(--plate);padding:20px;display:grid;gap:6px;align-content:start}
+.tool p{font-size:15px;color:var(--soft)}
+.tool .free{font-size:13px;font-weight:600;color:var(--gold-hi)}
+
+.formula{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;border-radius:18px;overflow:hidden}
+.formula div{background:linear-gradient(160deg,#3A2E1A,#24201A 70%);padding:16px;display:grid;gap:4px}
+.formula b{font-family:var(--display);font-size:15px;color:var(--gold-hi)}
+.formula span{font-size:14px;color:var(--soft)}
+.compare{display:grid;gap:10px}
+.compare div{border-radius:16px;padding:16px 18px;background:var(--plate)}
+.compare .bad{background:var(--well);color:var(--soft)}
+.compare .lbl{font-family:var(--display);font-size:14px;color:var(--dim);margin-bottom:4px}
+.compare div:not(.bad) .lbl{color:var(--gold-hi)}
+
+.prompts{display:grid;gap:14px}
+.prompt{background:var(--plate);border-radius:20px;padding:18px;display:grid;gap:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);transition:box-shadow .4s}
+.prompt:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 24px 50px -30px rgba(0,0,0,.9)}
+.prompt .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.prompt pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:14px;line-height:1.6;background:var(--well);border-radius:14px;padding:16px;color:var(--text)}
+.copy{flex:none;font:600 14px var(--body);padding:9px 15px;border-radius:11px;border:0;background:var(--plate-2);color:var(--text);cursor:pointer;transition:background .3s}
+.copy:hover{background:#36332E}
+.copy.done{background:var(--goldmetal);color:#1A1408}
+
+.warn{background:linear-gradient(160deg,#33221A,#221B17 70%);border-radius:22px;padding:26px;display:grid;gap:14px;box-shadow:inset 0 1px 0 rgba(227,165,126,.2)}
+.warn .step{color:var(--warn)}
+ul.clean{margin:0;padding-left:20px;display:grid;gap:10px;color:var(--soft)}
+ul.clean b{color:var(--text)}
+
+.next{border-radius:26px;padding:32px 28px;display:grid;gap:16px;margin-block:56px;
+  background:radial-gradient(100% 120% at 100% 0%,rgba(201,164,94,.22),transparent 60%),var(--plate);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.next p{color:var(--soft)}
+.word{display:inline-block;font-family:var(--display);font-weight:800;background:var(--goldmetal);color:#1A1408;padding:1px 9px;border-radius:7px}
+.can{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;border-radius:16px;overflow:hidden}
+.can div{background:var(--plate-2);padding:14px 16px;font-weight:600;font-size:15px}
+.tg{justify-self:start;display:inline-block;font-family:var(--display);font-weight:700;font-size:16px;text-decoration:none;padding:15px 24px;border-radius:14px;background:var(--goldmetal);background-size:200% 100%;color:#1A1408;transition:background-position .8s}
+.tg:hover{background-position:100% 0}
+.tg.alt{background:var(--plate-2);color:var(--text)}
+footer{padding-block:8px 44px;color:var(--dim);font-size:14px}
+@media (max-width:640px){.tools{grid-template-columns:1fr}.formula{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="grain" aria-hidden="true"></div>
+<header>
+  <div class="wrap">
+    <p class="hi">Ассалам алейкум, сестра 🤍</p>
+    <h1>Как начать <span>с ИИ</span></h1>
+    <p class="lead">Бесплатный гайд: первые 15 минут с нейросетью и 10 готовых запросов, которые можно просто скопировать.</p>
+    <div class="meta"><span><b>5</b>шагов</span><span><b>10</b>готовых запросов</span><span><b>0</b>сложных слов</span></div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section>
+  <p class="step">Шаг 1</p>
+  <h2>Что такое ИИ, по-простому</h2>
+  <p>Нейросеть похожа на очень быструю помощницу, которая прочитала почти весь интернет. Ты пишешь ей обычными словами, как подруге в чате, а она отвечает: пишет текст, придумывает идеи, считает, объясняет, составляет план.</p>
+  <p>Она не знает тебя и твоё дело, пока ты не расскажешь. Поэтому главное умение здесь одно: понятно объяснить, чего ты хочешь. Этому и посвящён гайд.</p>
+</section>
+
+<section>
+  <p class="step">Шаг 2</p>
+  <h2>Выбери одну нейросеть</h2>
+  <p>Начать можно бесплатно в любой из трёх. Не распыляйся: возьми одну и поработай с ней неделю.</p>
+  <div class="tools">
+    <div class="tool"><h3>Claude</h3><p>Пишет самые живые тексты на русском, хорошо держит длинные задачи. С ним я делаю рилс и сайты.</p><span class="free">Есть бесплатный вход</span></div>
+    <div class="tool"><h3>ChatGPT</h3><p>Самая известная. Умеет ещё рисовать картинки и понимает голосовые.</p><span class="free">Есть бесплатный вход</span></div>
+    <div class="tool"><h3>Gemini</h3><p>Нейросеть Google. Удобна, если у тебя уже есть почта Gmail.</p><span class="free">Есть бесплатный вход</span></div>
+  </div>
+  <p>Зарегистрируйся на сайте или скачай приложение на телефон. Это займёт 2 минуты.</p>
+</section>
+
+<section>
+  <p class="step">Шаг 3</p>
+  <h2>Формула хорошего запроса</h2>
+  <p>Большинство разочаровываются в ИИ после запроса в одну строчку. Ответ получается общим, потому что общим был вопрос. Пиши по формуле из четырёх частей:</p>
+  <div class="formula">
+    <div><b>Кто ты</b><span>«Ты опытный маркетолог»</span></div>
+    <div><b>Задача</b><span>«Напиши пост»</span></div>
+    <div><b>Про меня</b><span>чем ты занимаешься, для кого</span></div>
+    <div><b>Как выдать</b><span>длина, тон, списком или текстом</span></div>
+  </div>
+  <div class="compare">
+    <div class="bad"><p class="lbl">Так слабо</p><p>Напиши пост про выпечку.</p></div>
+    <div><p class="lbl">Так сильно</p><p>Ты опытный копирайтер. Напиши пост для Instagram о том, почему домашний хлеб на закваске полезнее магазинного. Я пеку хлеб на заказ в Москве, мои клиентки: мамы, которые следят за питанием семьи. Тон тёплый, без давления, до 800 знаков, в конце вопрос к подписчицам.</p></div>
+  </div>
+  <p>Если ответ не понравился, не начинай заново. Напиши в том же чате: «короче», «теплее», «добавь пример», «перепиши для мам с маленькими детьми». Нейросеть помнит весь разговор.</p>
+</section>
+
+<section>
+  <p class="step">Шаг 4</p>
+  <h2>10 запросов, которые можно скопировать</h2>
+  <p>Замени то, что в квадратных скобках, на своё, и отправь.</p>
+  <div class="prompts" id="prompts"></div>
+</section>
+
+<section>
+  <div class="warn">
+    <p class="step">Шаг 5</p>
+    <h2>Где ИИ нельзя верить на слово</h2>
+    <ul class="clean">
+      <li><b>Религиозные вопросы.</b> Нейросеть может перепутать аят, придумать хадис или дать неверное решение по фикху. Всё, что касается религии, проверяй у знающих людей и по первоисточникам.</li>
+      <li><b>Цифры и факты.</b> ИИ иногда уверенно ошибается. Даты, цены и статистику перед публикацией перепроверь.</li>
+      <li><b>Личные данные.</b> Не вставляй в чат паспорт, номера карт, пароли и чужие переписки.</li>
+      <li><b>Здоровье и деньги.</b> Совет нейросети не заменит врача или юриста.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="next">
+  <h2>Что дальше</h2>
+  <p>Тексты — это только начало. С теми же нейросетями я делаю для экспертов:</p>
+  <div class="can">
+    <div>Рилс без лица и съёмки</div>
+    <div>Сайты для курсов</div>
+    <div>Ботов в Telegram</div>
+    <div>Автоответы в директ</div>
+  </div>
+  <p>Хочешь научиться делать рилс с ИИ сама? Записывайся на интенсив «Рилс без лица».</p>
+  <a class="tg" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%20%C2%AB%D0%A0%D0%B8%D0%BB%D1%81%20%D0%B1%D0%B5%D0%B7%20%D0%BB%D0%B8%D1%86%D0%B0%C2%BB" target="_blank" rel="noopener">Записаться на интенсив</a>
+  <p>Хочешь, чтобы я сделала сайт или бота под твой проект? Напиши мне в Telegram, в двух словах расскажи, чем занимаешься.</p>
+  <a class="tg alt" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B8%D0%BB%D0%B8%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%BF%D0%BE%D0%B4%20%D1%81%D0%B2%D0%BE%D0%B9%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82.%20%D0%AF%20%D0%B7%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%8E%D1%81%D1%8C%3A%20" target="_blank" rel="noopener">Заказать сайт или бота</a>
+</div>
+
+</main>
+
+<footer><div class="wrap">Медина · Telegram @O_official · Нейросети для мусульманок</div></footer>
+
+<script>
+const PROMPTS = [
+  ["Пост для Instagram",
+`Ты опытный копирайтер. Напиши пост для Instagram на тему [тема].
+Я [чем ты занимаешься], мои подписчицы — [кто они].
+Тон тёплый и простой, без давления. До 900 знаков. Начни с цепляющей первой строки, в конце задай вопрос подписчицам.`],
+  ["Идеи для рилс без лица",
+`Придумай 15 идей для коротких роликов в Instagram без моего лица и без съёмки себя (только текст, рисунки, предметы, голос за кадром).
+Моя тема: [тема]. Аудитория: [кто они].
+Для каждой идеи дай крючок на первые 2 секунды и одну фразу, о чём ролик.`],
+  ["Сценарий одного рилс",
+`Напиши сценарий ролика на 20 секунд по идее: [идея].
+Разбей на 4–5 кадров: что видно на экране и какой текст в кадре.
+Крючок в первом кадре, в конце призыв написать слово [слово] в комментариях.`],
+  ["План на неделю с учётом намазов",
+`Помоги составить реалистичный план на неделю.
+У меня [сколько детей и какого возраста], я [работаю / веду блог / учусь]. Хочу успевать: [список дел].
+Учитывай пять намазов и то, что после иша я устаю. Выдай таблицей по дням, без перегруза.`],
+  ["Меню на неделю и список покупок",
+`Составь халяльное меню на 7 дней для семьи из [сколько человек], с детьми [возраст].
+Бюджет: [сумма] в неделю. Готовить хочу не больше [сколько] минут в день.
+В конце дай общий список покупок, сгруппированный по отделам магазина.`],
+  ["Ответ на возражение «дорого»",
+`Я продаю [продукт] за [цена]. Клиентки часто пишут «дорого» и «подумаю».
+Напиши 3 варианта мягкого ответа в директ, без давления и манипуляций, по 2–3 предложения.
+Покажи ценность через результат, который получит клиентка.`],
+  ["Разбор комментариев",
+`Вот комментарии подписчиц под моими постами:
+[вставь 20–30 комментариев]
+Сгруппируй их: какие вопросы задают чаще всего, что болит, чего хотят. Предложи 5 тем для следующих постов по этим болям.`],
+  ["Описание своего продукта",
+`Помоги описать мой продукт понятными словами.
+Что это: [курс / услуга / товар]. Для кого: [кто]. Какую проблему решает: [проблема]. Что входит: [список]. Цена: [цена].
+Напиши: для кого это, что человек получит, ответы на 3 главных сомнения. Не обещай гарантированных результатов.`],
+  ["Занятие для детей",
+`Придумай занятие на 20 минут для детей [возраст] на тему [например: благодарность, уборка, помощь маме].
+Нужны: короткая история, игра и вопрос для разговора после. Без мультяшных героев с лицами.`],
+  ["Научи меня сама",
+`Я новичок в нейросетях. Задай мне 5 вопросов о моей работе и жизни, а потом предложи 5 конкретных задач, которые ты можешь делать за меня каждую неделю, чтобы экономить время.`]
+];
+const box = document.getElementById('prompts');
+PROMPTS.forEach(([title, text], i) => {
+  const card = document.createElement('div');
+  card.className = 'prompt';
+  card.innerHTML = `<div class="top"><h3>${i+1}. ${title}</h3><button class="copy" id="copy-${i}" type="button">Скопировать</button></div><pre id="p-${i}"></pre>`;
+  card.querySelector('pre').textContent = text;
+  const btn = card.querySelector('button');
+  btn.addEventListener('click', () => {
+    const done = () => { btn.textContent = 'Скопировано'; btn.classList.add('done'); setTimeout(() => { btn.textContent = 'Скопировать'; btn.classList.remove('done'); }, 1800); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(card.querySelector('pre')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Выделено, скопируй'; };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+  box.appendChild(card);
+});
+</script>
