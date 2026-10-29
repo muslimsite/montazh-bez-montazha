@@ -191,6 +191,8 @@ details p{padding:0 28px 26px;color:var(--soft);max-width:64ch}
 .frame .res{margin-top:auto;padding-top:16px;font-weight:600;display:flex;gap:10px;align-items:flex-start;border-top:1px solid rgba(255,255,255,.07)}
 .frames.two{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:860px){.frames.two{grid-template-columns:1fr}}
+.frame.bonus{background:linear-gradient(160deg,#3A2E1A,#221E18 65%);box-shadow:inset 0 1px 0 rgba(231,203,140,.28)}
+.frame.bonus .n{color:var(--gold-hi)}
 .frame .miss{font-size:14.5px;color:var(--dim);line-height:1.5}
 .frame .miss b{display:block;font-family:var(--display);font-weight:500;font-size:13px;color:#C98A6E;margin-bottom:2px}
 .marquee{margin-top:70px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
@@ -231,7 +233,7 @@ input[type=range]{width:100%;accent-color:var(--gold);height:28px}
 .out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border-radius:26px;overflow:hidden}
 .out .cell{background:var(--plate);padding:24px;display:grid;gap:6px;align-content:start}
 .out .cell span{color:var(--soft);font-size:15px}
-.out .cell b{font-family:var(--display);font-size:clamp(22px,2.6vw,30px);font-variant-numeric:tabular-nums}
+.out .cell b{font-family:var(--display);font-size:clamp(19px,2.2vw,28px);font-variant-numeric:tabular-nums;white-space:nowrap}
 .out .big{grid-column:1/-1;background:linear-gradient(150deg,#3A2E1A,#221E18 65%);padding:30px}
 .out .big b{font-size:clamp(44px,7vw,80px);background:var(--goldmetal);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
 .out .big em{font-style:normal;color:var(--soft)}
@@ -375,7 +377,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     <div class="row">
       <a class="btn" href="#zapis">Встать в предзапись
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <p class="free"><b>4 урока</b> · 2 недели · первый рилс в первый день</p>
+      <p class="free"><b>3 урока монтажа</b> · 2 недели · первый рилс в первый день</p>
     </div>
   </div>
   <div class="stage" aria-hidden="true">
@@ -439,7 +441,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       <div><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>Вносить правки обычными словами</div>
       <div><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>Делать 5 рилс за вечер по шаблону</div>
     </div>
-    <p class="bonus-line rise"><b>Бонус</b> Расскажу, как разбирать конкурентов и писать сценарии с крючком, чтобы было что монтировать.</p>
+    <p class="bonus-line rise"><b>Бонус</b> В тарифах «С поддержкой» и «Под ключ» расскажу, как разбирать конкурентов и писать сценарии с крючком, чтобы было что монтировать.</p>
   </div>
 </section>
 
@@ -496,35 +498,35 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
 
 <section id="programma">
   <div class="wrap">
-    <div class="head rise"><h2>Программа</h2><p>Четыре урока за две недели и эфир с ответами. Каждый урок заканчивается готовым результатом.</p></div>
+    <div class="head rise"><h2>Программа</h2><p>Три урока монтажа за две недели. В тарифах с поддержкой ещё бонус-урок про сценарии и эфир с ответами. Каждый урок заканчивается готовым результатом.</p></div>
     <div class="path rise">
       <div><p class="lbl">Сейчас</p><p>Платишь монтажёру, ждёшь, правишь по пять раз, а рилс всё равно выходят редко.</p></div>
       <svg class="arrow" width="40" height="24" viewBox="0 0 40 24" fill="none" aria-hidden="true"><path d="M2 12h34M26 3l10 9-10 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       <div class="b"><p class="lbl">Через две недели</p><p>Монтируешь сама с ИИ: 5 рилс за вечер, 150 в месяц, из своих кадров и в рисованных стилях.</p></div>
     </div>
 
-    <figure class="vis rise"><img src="img/lupa.jpg" alt="Золотая лупа над графиками роста" loading="lazy"><figcaption><b>Неделя 1</b><h3>Первый рилс и сценарии</h3></figcaption></figure>
+    <figure class="vis rise"><img src="img/lupa.jpg" alt="Золотая лупа над графиками роста" loading="lazy"><figcaption><b>Неделя 1</b><h3>Первый рилс и свои кадры</h3></figcaption></figure>
     <div class="frames two">
-      <article class="frame rise"><div class="seg"><i class="now"></i><i></i><i></i><i></i></div><p class="n">Урок 1</p><h4>Первый рилс сегодня</h4>
+      <article class="frame rise"><div class="seg"><i class="now"></i><i></i><i></i></div><p class="n">Урок 1</p><h4>Первый рилс сегодня</h4>
         <ul><li>установка и папка-набор</li><li>своё оформление: аватарка, цвета, голос</li><li>первый рилс по готовому сценарию</li></ul>
         <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>Первый рилс сама в первый же день</p>
         <p class="miss"><b>Без этого урока</b> так и будешь ждать монтажёра и платить за каждый ролик</p></article>
-      <article class="frame rise"><div class="seg"><i class="on"></i><i class="now"></i><i></i><i></i></div><p class="n">Урок 2</p><h4>30 сценариев за вечер</h4>
-        <ul><li>что залетает у конкурентов и почему</li><li>крючок на первые 2 секунды</li><li>ИИ пишет сценарии за тебя</li></ul>
-        <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>30 сценариев на месяц вперёд</p>
-        <p class="miss"><b>Без этого урока</b> будешь выдавливать из себя сценарии и отдавать монтажёру</p></article>
-    </div>
-
-    <figure class="vis rise"><img src="img/naushniki.jpg" alt="Металлическая скульптура хиджаба в золотых наушниках" loading="lazy" style="object-position:50% 35%"><figcaption><b>Неделя 2</b><h3>Свои кадры, стили и поток</h3></figcaption></figure>
-    <div class="frames two">
-      <article class="frame rise"><div class="seg"><i class="on"></i><i class="on"></i><i class="now"></i><i></i></div><p class="n">Урок 3</p><h4>Рилс из ваших кадров</h4>
+      <article class="frame rise"><div class="seg"><i class="on"></i><i class="now"></i><i></i></div><p class="n">Урок 2</p><h4>Рилс из ваших кадров</h4>
         <ul><li>фото и видео хоть с телефона</li><li>моушен-анимация, озвучка, субтитры</li><li>правки обычными словами</li></ul>
         <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>Рилс из своих фото и видео</p>
         <p class="miss"><b>Без этого урока</b> кадры так и останутся лежать в телефоне</p></article>
-      <article class="frame rise"><div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i></div><p class="n">Урок 4</p><h4>Стили и поток</h4>
+    </div>
+
+    <figure class="vis rise"><img src="img/naushniki.jpg" alt="Металлическая скульптура хиджаба в золотых наушниках" loading="lazy" style="object-position:50% 35%"><figcaption><b>Неделя 2</b><h3>Стили, поток и бонус</h3></figcaption></figure>
+    <div class="frames two">
+      <article class="frame rise"><div class="seg"><i class="on"></i><i class="on"></i><i class="now"></i></div><p class="n">Урок 3</p><h4>Стили и поток</h4>
         <ul><li>акварель, бумажный театр, человечки</li><li>свой фирменный стиль</li><li>5 сценариев в 5 роликов за вечер</li></ul>
         <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>5 рилс за вечер, 150 в месяц</p>
         <p class="miss"><b>Без этого урока</b> рилс снова будут выходить раз в неделю</p></article>
+      <article class="frame rise bonus"><div class="seg"><i class="now"></i></div><p class="n">Бонус-урок · в тарифах «С поддержкой» и «Под ключ»</p><h4>30 сценариев за вечер</h4>
+        <ul><li>что залетает у конкурентов и почему</li><li>крючок на первые 2 секунды</li><li>ИИ пишет сценарии за тебя</li></ul>
+        <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>30 сценариев на месяц вперёд</p>
+        <p class="miss"><b>Без этого урока</b> будешь выдавливать из себя сценарии и отдавать монтажёру</p></article>
     </div>
   </div>
   <div class="marquee" aria-label="Стили роликов: живые кадры, человечки в хиджабе, акварель, графика, анимация поверх кадров, тушь, вырезанная бумага, витраж">
@@ -543,7 +545,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
         <h3>Как проходит</h3>
         <div class="rowkv"><span>Где</span><span>онлайн, уроки в записи</span></div>
         <div class="rowkv"><span>Длительность</span><span>2 недели</span></div>
-        <div class="rowkv"><span>Уроки</span><span>4 урока по 30–50 минут и эфир с ответами</span></div>
+        <div class="rowkv"><span>Уроки</span><span>3 урока монтажа по 30–50 минут, бонус-урок и эфир в тарифах с поддержкой</span></div>
         <div class="rowkv"><span>Практика</span><span>после каждого урока</span></div>
         <div class="rowkv"><span>Доступ</span><span>3 месяца</span></div>
       </div>
@@ -595,8 +597,8 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
           <th><div class="t">Под ключ</div><div class="p">29 900 ₽</div><div class="w">хочешь сразу делать ролики</div></th>
         </tr></thead>
         <tbody>
-          <tr><td>4 урока и папка-набор</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Шаблоны паспорта и таблицы конкурентов</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>3 урока монтажа и папка-набор</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Бонус-урок: конкуренты и 30 сценариев</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Чат сестёр на 2 недели</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Разбор домашних заданий</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Эфир с ответами</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
@@ -608,9 +610,9 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     </div>
     <div class="plans-sm">
       <div class="plan-sm"><p class="t">Сама</p><p class="p">5 990 ₽</p><p class="w">Привыкла разбираться сама</p>
-        <ul><li>4 урока и папка-набор</li><li>шаблоны паспорта и таблицы конкурентов</li><li>доступ 3 месяца</li></ul><a href="#zapis">В предзапись</a></div>
+        <ul><li>3 урока монтажа и папка-набор</li><li>доступ 3 месяца</li></ul><a href="#zapis">В предзапись</a></div>
       <div class="plan-sm mid"><p class="t">С поддержкой</p><p class="p">12 900 ₽</p><p class="w">Важно не застрять</p>
-        <ul><li>всё из тарифа «Сама»</li><li>чат сестёр на 2 недели</li><li>разбор домашних заданий</li><li>эфир с ответами</li></ul><a href="#zapis">В предзапись</a></div>
+        <ul><li>всё из тарифа «Сама»</li><li>бонус-урок: конкуренты и 30 сценариев</li><li>чат сестёр на 2 недели</li><li>разбор домашних заданий</li><li>эфир с ответами</li></ul><a href="#zapis">В предзапись</a></div>
       <div class="plan-sm"><p class="t">Под ключ</p><p class="p">29 900 ₽</p><p class="w">Хочешь сразу делать ролики</p>
         <ul><li>всё из тарифа «С поддержкой»</li><li>настраиваем всё на твоём компьютере вместе</li><li>мой личный разбор твоей страницы</li></ul><a href="#zapis">В предзапись</a></div>
     </div>
