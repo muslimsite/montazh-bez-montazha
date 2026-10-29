@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="ru">
 <meta charset="utf-8">
-<title>Рилс без лица</title>
+<title>Монтаж без монтажа</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Интенсив для сестёр: ИИ разбирает страницу и конкурентов, пишет сценарий и собирает рилс. Без съёмки, без монтажа, без лица.">
+<meta name="description" content="Интенсив Медины: ИИ разбирает страницу и конкурентов, пишет сценарии и собирает 10 рилс за вечер. Для экспертов и монтажёров.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;700;800&display=swap">
@@ -71,7 +71,7 @@ nav.top .go:hover{color:#1A1408;background-position:100% 0}
 .hero .wrap{position:relative;z-index:1;display:grid;justify-items:center;text-align:center;gap:22px}
 .hero .who{font-family:var(--display);font-size:15px;color:var(--soft);letter-spacing:.04em}
 .hero .who b{color:var(--gold-hi);font-weight:500}
-.hero h1{font-size:clamp(52px,11.5vw,148px);line-height:.92;font-weight:800;letter-spacing:-.03em;text-transform:uppercase}
+.hero h1{font-size:clamp(38px,11vw,140px);line-height:.92;font-weight:800;letter-spacing:-.03em;text-transform:uppercase}
 .hero h1 .metal{background:var(--metal);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite}
 @keyframes sheen{0%,100%{background-position:0 0}50%{background-position:100% 0}}
 .hero .lead{font-size:clamp(18px,2.2vw,21px);color:var(--soft);max-width:40ch}
@@ -119,7 +119,17 @@ nav.top .go:hover{color:#1A1408;background-position:100% 0}
 .spark{width:22px;height:22px;flex:none;color:var(--gold)}
 
 /* ДЛЯ ТЕБЯ */
-.fit{padding-top:clamp(300px,30vw,360px)}
+.fit{padding-top:clamp(40px,6vw,80px)}
+/* кому подойдёт: две стороны */
+.who-for{padding-top:clamp(300px,30vw,360px)}
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.duo .side{border-radius:26px;padding:34px 32px;display:grid;gap:14px;align-content:start;background:var(--plate);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.duo .side:last-child{background:linear-gradient(150deg,#3A2E1A,#221E18 65%);box-shadow:inset 0 1px 0 rgba(231,203,140,.28)}
+.duo .tag{font-family:var(--display);font-size:15px;color:var(--gold-hi)}
+.duo h3{font-size:clamp(22px,2.6vw,28px);line-height:1.15}
+.duo p:not(.tag){color:var(--soft)}
+@media (max-width:860px){.duo{grid-template-columns:1fr}}
+
 main{background:
   radial-gradient(60% 40% at 85% 22%,rgba(201,164,94,.07),transparent 70%),
   radial-gradient(50% 30% at 10% 55%,rgba(169,171,175,.05),transparent 70%),
@@ -286,8 +296,8 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   <canvas id="dust" aria-hidden="true"></canvas>
   <div class="wrap">
     <p class="who">Интенсив <b>Медины</b> для сестёр</p>
-    <h1><span class="metal">Рилс</span><br>без лица</h1>
-    <p class="lead">ИИ разберёт твою страницу и конкурентов, напишет сценарий и соберёт ролик. Без съёмки, без монтажа, без лица.</p>
+    <h1><span class="metal">Монтаж</span><br>без монтажа</h1>
+    <p class="lead">10 рилс за вечер, пока ты занята своими делами. ИИ разберёт страницу и конкурентов, напишет сценарии и соберёт ролики.</p>
     <div class="row">
       <a class="btn" href="#tarify">Выбрать тариф
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -309,6 +319,16 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
 </header>
 
 <main>
+
+<section class="who-for">
+  <div class="wrap">
+    <div class="head rise"><h2>Кому подойдёт</h2></div>
+    <div class="duo rise">
+      <div class="side"><p class="tag">Эксперту и блогеру</p><h3>Больше не ждёшь монтажёра</h3><p>Не платишь за каждый ролик и не объясняешь по десять раз, что нужно. Садишься вечером, а к ночи у тебя готово 10 рилс в твоём оформлении.</p></div>
+      <div class="side"><p class="tag">Монтажёру и рилсмейкеру</p><h3>Сдаёшь заказы в разы быстрее</h3><p>ИИ берёт на себя рутину: субтитры, озвучку, сборку кадров. Ты занимаешься идеей и качеством и можешь взять больше клиентов.</p></div>
+    </div>
+  </div>
+</section>
 
 <section class="fit">
   <div class="wrap">
@@ -371,7 +391,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     <div class="path rise">
       <div><p class="lbl">Сейчас</p><p>Рилс выходят редко, темы «с потолка», монтаж долгий, просмотры маленькие, а лицо показывать нельзя.</p></div>
       <svg class="arrow" width="40" height="24" viewBox="0 0 40 24" fill="none" aria-hidden="true"><path d="M2 12h34M26 3l10 9-10 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div class="b"><p class="lbl">Через три недели</p><p>Понятно, что работает у тебя и у конкурентов. Есть план на месяц, сценарии, 3–5 готовых роликов и воронка на кодовое слово.</p></div>
+      <div class="b"><p class="lbl">Через три недели</p><p>Понятно, что работает у тебя и у конкурентов. Есть план на месяц, сценарии, первые 10 готовых роликов и воронка на кодовое слово.</p></div>
     </div>
 
     <figure class="vis rise"><img src="img/lupa.jpg" alt="Золотая лупа над графиками роста" loading="lazy"><figcaption><b>Блок 1</b><h3>Узнать, что снимать</h3></figcaption></figure>
@@ -395,9 +415,9 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       <article class="frame rise"><div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i><i></i></div><p class="n">Урок 5</p><h4>Пять стилей</h4>
         <ul><li>живые кадры и человечки</li><li>тушь, бумага, витраж, мелки</li><li>акварель, голос и звуки</li></ul>
         <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>Ролики в 2–3 стилях</p></article>
-      <article class="frame rise"><div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i></div><p class="n">Урок 6</p><h4>Поток: 5 рилс за вечер</h4>
+      <article class="frame rise"><div class="seg"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="now"></i></div><p class="n">Урок 6</p><h4>Поток: 10 рилс за вечер</h4>
         <ul><li>правки обычными словами</li><li>проверка перед публикацией</li><li>разбор через 2 недели: что залетело</li></ul>
-        <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>5 роликов и ритм на месяц</p></article>
+        <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>10 роликов и ритм на месяц</p></article>
     </div>
   </div>
   <div class="marquee" aria-label="Стили роликов: живые кадры, человечки в хиджабе, акварель, графика, анимация поверх кадров, тушь, вырезанная бумага, витраж">
@@ -471,7 +491,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     <img class="hero-img" src="img/hijab.jpg" alt="" loading="lazy">
     <p class="salam">Ассалам алейкум, сестра</p>
     <h2>Напиши мне в Telegram</h2>
-    <a class="btn" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%20%C2%AB%D0%A0%D0%B8%D0%BB%D1%81%20%D0%B1%D0%B5%D0%B7%20%D0%BB%D0%B8%D1%86%D0%B0%C2%BB" target="_blank" rel="noopener">Записаться в Telegram
+    <a class="btn" href="https://t.me/O_official?text=%D0%90%D1%81%D1%81%D0%B0%D0%BB%D0%B0%D0%BC%D1%83%20%D0%B0%D0%BB%D0%B5%D0%B9%D0%BA%D1%83%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%B8%D0%BD%D1%82%D0%B5%D0%BD%D1%81%D0%B8%D0%B2%20%C2%AB%D0%9C%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%20%D0%B1%D0%B5%D0%B7%20%D0%BC%D0%BE%D0%BD%D1%82%D0%B0%D0%B6%D0%B0%C2%BB" target="_blank" rel="noopener">Записаться в Telegram
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     <p>Нажми кнопку: откроется чат с <a class="handle" href="https://t.me/O_official" target="_blank" rel="noopener">@O_official</a> и готовым сообщением «Ассаламу алейкум! Хочу записаться на интенсив». Останется только отправить.</p>
   </div>
@@ -479,7 +499,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
 </section>
 
 </main>
-<footer><div class="wrap">Интенсив «Рилс без лица» · Медина · Telegram @O_official</div></footer>
+<footer><div class="wrap">Интенсив «Монтаж без монтажа» · Медина · Telegram @O_official</div></footer>
 
 <script>
 (() => {
@@ -508,7 +528,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   });
 
   /* субтитры в телефоне: слово подсвечивается под голос */
-  const lines = [['Этот','рилс','сделал','ИИ'], ['Без','съёмки','и','монтажа'], ['За','один','вечер'], ['Пиши','РИЛС','в','комментариях']];
+  const lines = [['Этот','рилс','сделал','ИИ'], ['Без','съёмки','и','монтажа'], ['10','рилс','за','вечер'], ['Пиши','РИЛС','в','комментариях']];
   const subs = document.getElementById('subs'), bc = document.getElementById('bc'), bd = document.getElementById('bd');
   let li = 0;
   const showLine = () => {
