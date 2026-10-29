@@ -74,6 +74,8 @@ nav.top .go:hover{color:#1A1408;background-position:100% 0}
 .hero h1{font-size:clamp(38px,11vw,140px);line-height:.92;font-weight:800;letter-spacing:-.03em;text-transform:uppercase}
 .hero h1 .metal{background:var(--metal);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite}
 @keyframes sheen{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+.hero .offer{font-family:var(--display);font-size:clamp(20px,2.8vw,30px);font-weight:500;line-height:1.3;max-width:30ch;color:var(--text)}
+.hero .offer b{font-weight:700;background:var(--goldmetal);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap}
 .hero .lead{font-size:clamp(18px,2.2vw,21px);color:var(--soft);max-width:40ch}
 .hero .row{display:flex;flex-wrap:wrap;gap:18px 26px;justify-content:center;align-items:center;margin-top:8px}
 .hero .free{font-size:15px;color:var(--soft)}
@@ -319,7 +321,8 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   <div class="wrap">
     <p class="who">Интенсив <b>для сестёр</b></p>
     <h1><span class="metal">Монтаж</span><br>без монтажа</h1>
-    <p class="lead">10 рилс за вечер, пока ты занята своими делами. ИИ разберёт страницу и конкурентов, напишет сценарии и соберёт ролики.</p>
+    <p class="offer">Как делать <b>150 рилс в месяц</b> и платить за каждый <b>75 ₽</b>, а не 1&nbsp;500&nbsp;₽ монтажёру</p>
+    <p class="lead">ИИ монтирует сам, пока ты занимаешься своими делами. Без съёмки и без ручного монтажа.</p>
     <div class="row">
       <a class="btn" href="#tarify">Выбрать тариф
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -581,7 +584,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   });
 
   /* субтитры в телефоне: слово подсвечивается под голос */
-  const lines = [['Этот','рилс','сделал','ИИ'], ['Без','съёмки','и','монтажа'], ['10','рилс','за','вечер'], ['Пиши','РИЛС','в','комментариях']];
+  const lines = [['Этот','рилс','сделал','ИИ'], ['Без','съёмки','и','монтажа'], ['150','рилс','в','месяц'], ['Пиши','РИЛС','в','комментариях']];
   const subs = document.getElementById('subs'), bc = document.getElementById('bc'), bd = document.getElementById('bd');
   let li = 0;
   const showLine = () => {
