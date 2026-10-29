@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="ru">
+<meta charset="utf-8">
+<title>Как установить Claude</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;800&display=swap">
+<style>
+/* Гайд «Как установить Claude». Тот же мир, что у сайта «Монтаж без монтажа»: ночной графит, металл, приглушённое золото.
+   Layout: одна колонка для чтения с телефона (~720px), шаги сверху вниз, запросы в металлических плитах с кнопкой «Скопировать».
+   Шрифты: Tektur (заголовки) + system-ui (текст). Одна тёмная тема намеренно. */
+:root{
+  --night:#0F0F0E; --plate:#211F1C; --plate-2:#2A2824; --well:#171614;
+  --text:#EDEAE3; --soft:#A7A398; --dim:#6F6C64;
+  --silver-1:#F4F3F0; --silver-2:#A9ABAF; --silver-3:#5C5E62;
+  --gold:#C9A45E; --gold-hi:#E7CB8C; --gold-deep:#8C6A2E; --warn:#E3A57E;
+  --display:"Tektur","Arial Narrow",system-ui,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --metal:linear-gradient(115deg,var(--silver-3) 0%,var(--silver-1) 22%,var(--silver-2) 40%,var(--silver-1) 58%,var(--silver-3) 80%,var(--silver-2) 100%);
+  --goldmetal:linear-gradient(115deg,var(--gold-deep) 0%,var(--gold-hi) 30%,var(--gold) 55%,var(--gold-hi) 75%,var(--gold-deep) 100%);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--night);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+header,main,footer{position:relative;z-index:1}
+.wrap{max-width:720px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0;font-weight:700}
+h2{font-size:clamp(24px,4.4vw,32px)}
+h3{font-size:17px}
+p{margin:0}
+a{color:var(--gold-hi)}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+section{padding-block:56px;display:grid;gap:18px}
+.step{font-family:var(--display);font-size:15px;font-weight:500;color:var(--gold-hi)}
+
+header{background:radial-gradient(120% 90% at 50% 120%,#3A2E1C 0%,#1C1812 40%,var(--night) 75%);overflow:hidden}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(180deg,rgba(15,15,14,0),var(--night));pointer-events:none}
+header .wrap{padding-block:72px 64px;display:grid;gap:18px}
+header .hi{font-family:var(--display);color:var(--gold-hi)}
+header h1{font-size:clamp(44px,10vw,80px);font-weight:800;letter-spacing:-.02em;text-transform:uppercase;line-height:.95}
+header h1 span{background:var(--metal);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0 0}50%{background-position:100% 0}}
+header p.lead{font-size:19px;max-width:38ch;color:var(--soft)}
+.meta{display:flex;flex-wrap:wrap;gap:22px;margin-top:6px;font-family:var(--display);font-size:15px;color:var(--soft)}
+.meta b{color:var(--text);font-size:22px;margin-right:6px}
+
+.tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border-radius:20px;overflow:hidden}
+.tool{background:var(--plate);padding:20px;display:grid;gap:6px;align-content:start}
+.tool p{font-size:15px;color:var(--soft)}
+.tool .free{font-size:13px;font-weight:600;color:var(--gold-hi)}
+
+.formula{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2px;border-radius:18px;overflow:hidden}
+.formula div{background:linear-gradient(160deg,#3A2E1A,#24201A 70%);padding:16px;display:grid;gap:4px}
+.formula b{font-family:var(--display);font-size:15px;color:var(--gold-hi)}
+.formula span{font-size:14px;color:var(--soft)}
+.compare{display:grid;gap:10px}
+.compare div{border-radius:16px;padding:16px 18px;background:var(--plate)}
+.compare .bad{background:var(--well);color:var(--soft)}
+.compare .lbl{font-family:var(--display);font-size:14px;color:var(--dim);margin-bottom:4px}
+.compare div:not(.bad) .lbl{color:var(--gold-hi)}
+
+.prompts{display:grid;gap:14px}
+.prompt{background:var(--plate);border-radius:20px;padding:18px;display:grid;gap:12px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);transition:box-shadow .4s}
+.prompt:hover{box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 24px 50px -30px rgba(0,0,0,.9)}
+.prompt .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.prompt pre{margin:0;white-space:pre-wrap;word-break:break-word;font-family:var(--mono);font-size:14px;line-height:1.6;background:var(--well);border-radius:14px;padding:16px;color:var(--text)}
+.copy{flex:none;font:600 14px var(--body);padding:9px 15px;border-radius:11px;border:0;background:var(--plate-2);color:var(--text);cursor:pointer;transition:background .3s}
+.copy:hover{background:#36332E}
+.copy.done{background:var(--goldmetal);color:#1A1408}
+
+.warn{background:linear-gradient(160deg,#33221A,#221B17 70%);border-radius:22px;padding:26px;display:grid;gap:14px;box-shadow:inset 0 1px 0 rgba(227,165,126,.2)}
+.warn .step{color:var(--warn)}
+ul.clean{margin:0;padding-left:20px;display:grid;gap:10px;color:var(--soft)}
+ul.clean b{color:var(--text)}
+
+.next{border-radius:26px;padding:32px 28px;display:grid;gap:16px;margin-block:56px;
+  background:radial-gradient(100% 120% at 100% 0%,rgba(201,164,94,.22),transparent 60%),var(--plate);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.next p{color:var(--soft)}
+.word{display:inline-block;font-family:var(--display);font-weight:800;background:var(--goldmetal);color:#1A1408;padding:1px 9px;border-radius:7px}
+.can{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;border-radius:16px;overflow:hidden}
+.can div{background:var(--plate-2);padding:14px 16px;font-weight:600;font-size:15px}
+.tg{justify-self:start;display:inline-block;font-family:var(--display);font-weight:700;font-size:16px;text-decoration:none;padding:15px 24px;border-radius:14px;background:var(--goldmetal);background-size:200% 100%;color:#1A1408;transition:background-position .8s}
+.tg:hover{background-position:100% 0}
+.tg.alt{background:var(--plate-2);color:var(--text)}
+footer{padding-block:8px 44px;color:var(--dim);font-size:14px}
+@media (max-width:640px){.tools{grid-template-columns:1fr}.formula{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style>
+.steps{display:grid;gap:14px;counter-reset:st}
+.st{background:var(--plate);border-radius:20px;padding:22px 22px 22px 74px;position:relative;display:grid;gap:8px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.st::before{counter-increment:st;content:counter(st);position:absolute;left:22px;top:20px;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:800;background:var(--goldmetal);color:#1A1408}
+.st p,.st li{color:var(--soft)}
+.st ul{margin:0;padding-left:20px;display:grid;gap:6px}
+.st b{color:var(--text)}
+.dl{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.dl a{font-family:var(--display);font-weight:700;font-size:15px;text-decoration:none;padding:13px 20px;border-radius:13px;background:var(--goldmetal);color:#1A1408}
+.dl a.alt{background:var(--plate-2);color:var(--text)}
+.kbd{font-family:var(--mono);font-size:14px;background:var(--well);color:var(--text);padding:2px 7px;border-radius:6px;white-space:nowrap}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border-radius:18px;overflow:hidden}
+.plans div{background:var(--plate);padding:18px;display:grid;gap:4px}
+.plans b{font-family:var(--display);font-size:17px}
+.plans .pr{font-family:var(--display);font-size:24px;font-weight:800;color:var(--gold-hi)}
+.plans span{color:var(--soft);font-size:14px}
+@media (max-width:640px){.plans{grid-template-columns:1fr}.st{padding-left:22px;padding-top:68px}}
+</style>
+<div class="grain" aria-hidden="true"></div>
+<header>
+  <div class="wrap">
+    <p class="hi">Бонус к интенсиву «Монтаж без монтажа»</p>
+    <h1>Как установить <span>Claude</span></h1>
+    <p class="lead">Пошагово, без сложных слов. Займёт около 15 минут, и после этого Claude будет монтировать рилс прямо на твоём компьютере.</p>
+    <div class="meta"><span><b>9</b>шагов</span><span><b>15</b>минут</span><span><b>0</b>программирования</span></div>
+  </div>
+</header>
+<main class="wrap">
+
+<section>
+  <h2>Что понадобится</h2>
+  <ul class="clean">
+    <li><b>Ноутбук или компьютер</b> на Mac или Windows. С телефона монтировать не получится.</li>
+    <li><b>Почта</b> для аккаунта.</li>
+    <li><b>Платная подписка Claude.</b> На бесплатном тарифе нет вкладки Code, в которой Claude монтирует.</li>
+  </ul>
+  <div class="plans">
+    <div><b>Pro</b><p class="pr">$20</p><span>в месяц. Хватит, чтобы начать и сделать первые ролики</span></div>
+    <div><b>Max 5x</b><p class="pr">$100</p><span>в месяц. Для потока: 5 рилс в день</span></div>
+    <div><b>Max 20x</b><p class="pr">$200</p><span>в месяц. Если делаешь рилс клиентам каждый день</span></div>
+  </div>
+  <p style="color:var(--dim);font-size:14px">Цены с сайта Anthropic на октябрь 2026, перед оплатой проверь на claude.com/pricing.</p>
+</section>
+
+<section>
+  <h2>Установка</h2>
+  <div class="steps">
+    <div class="st"><h3>Проверь свою страну</h3><p>Claude работает не во всех странах. Список стран, где он доступен, есть на сайте Anthropic.</p><div class="dl"><a class="alt" href="https://support.claude.com/en/articles/8461763-which-countries-and-regions-can-i-use-claude-ai-from" target="_blank" rel="noopener">Открыть список стран</a></div></div>
+    <div class="st"><h3>Создай аккаунт</h3><p>Зайди на <b>claude.ai</b> и зарегистрируйся через почту или аккаунт Google.</p></div>
+    <div class="st"><h3>Оформи подписку</h3><p>В аккаунте открой настройки, раздел оплаты, и выбери <b>Pro</b> или <b>Max</b>. Начать можно с Pro, перейти на Max можно в любой момент.</p></div>
+    <div class="st"><h3>Скачай приложение</h3><p>Выбери свой компьютер:</p>
+      <div class="dl"><a href="https://claude.ai/api/desktop/darwin/universal/dmg/latest/redirect" target="_blank" rel="noopener">Скачать для Mac</a><a class="alt" href="https://claude.ai/api/desktop/win32/x64/setup/latest/redirect" target="_blank" rel="noopener">Скачать для Windows</a></div>
+      <p style="font-size:14px">Если у тебя Windows на процессоре ARM (редкие ноутбуки), <a href="https://claude.ai/api/desktop/win32/arm64/setup/latest/redirect" target="_blank" rel="noopener">вот отдельный файл</a>.</p></div>
+    <div class="st"><h3>Установи и открой</h3><ul><li><b>Mac:</b> открой скачанный файл и установи. Потом запусти Claude из папки «Программы».</li><li><b>Windows:</b> запусти скачанный установщик. Потом открой Claude через меню «Пуск».</li></ul></div>
+    <div class="st"><h3>Войди и открой вкладку Code</h3><p>Войди в тот же аккаунт. Вверху слева, в боковой панели, нажми вкладку <b>Code</b>. Если видны только значки, наведи на них мышку, появятся названия.</p></div>
+    <div class="st"><h3>Создай папку и выбери её</h3><p>Создай на компьютере папку <b>«Рилс»</b> и положи в неё папку-набор с интенсива. Потом в Claude под полем для сообщения:</p><ul><li>нажми первый переключатель и выбери вариант из группы <b>Local</b>, то есть «на моём компьютере»;</li><li>нажми кнопку рядом, выбери <b>Open folder…</b> и укажи папку «Рилс».</li></ul></div>
+    <div class="st"><h3>Реши, как часто Claude спрашивает разрешение</h3><p>Под полем для сообщения есть переключатель режима:</p><ul><li><b>Manual</b>, стоит сначала: Claude спрашивает перед каждым действием, ты нажимаешь «разрешить» или «отклонить». Так спокойнее на первых порах.</li><li><b>Auto</b>: Claude работает без постоянных вопросов, а рискованные действия сам останавливает. Удобно, когда уже освоилась.</li></ul></div>
+    <div class="st"><h3>Напиши первое сообщение</h3><p>Скопируй и отправь, Claude сам проверит, что всё готово для монтажа:</p>
+      <div class="prompts" id="prompts"></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="warn">
+    <p class="step">Если что-то не получается</p>
+    <ul class="clean">
+      <li><b>Нет вкладки Code.</b> Проверь, что оформлена подписка Pro или Max, и обнови приложение: на Mac <span class="kbd">Claude → Check for Updates…</span>, на Windows <span class="kbd">Help → Check for Updates…</span></li>
+      <li><b>На Windows пишет «Git is required».</b> Сначала обнови приложение. Если не помогло, установи бесплатную программу <a href="https://git-scm.com/downloads/win" target="_blank" rel="noopener">Git for Windows</a> и попробуй снова.</li>
+      <li><b>Нужно ли ставить что-то ещё?</b> Нет, программировать и ставить дополнительные программы для начала не нужно. Всё остальное Claude поставит сам, когда попросишь, а ты только нажмёшь «разрешить».</li>
+    </ul>
+  </div>
+</section>
+
+<div class="next">
+  <h2>Готово</h2>
+  <p>Claude установлен. Дальше на уроке 1 делаем твой первый рилс.</p>
+  <a class="tg" href="https://muslimsite.github.io/montazh-bez-montazha/" target="_blank" rel="noopener">К интенсиву</a>
+</div>
+
+</main>
+<footer><div class="wrap">Медина · Telegram @O_official · Монтаж без монтажа</div></footer>
+<script>
+const PROMPTS = [
+  ["Первое сообщение", `Привет! Я начинаю интенсив «Монтаж без монтажа». Проверь, пожалуйста, что на этом компьютере всё готово, чтобы монтировать рилс: какие программы уже есть, каких не хватает. Объясняй простыми словами, без терминов, и перед каждой установкой спрашивай меня.`]
+];
+const box = document.getElementById('prompts');
+PROMPTS.forEach(([title, text], i) => {
+  const card = document.createElement('div');
+  card.className = 'prompt';
+  card.innerHTML = `<div class="top"><h3>${i+1}. ${title}</h3><button class="copy" id="copy-${i}" type="button">Скопировать</button></div><pre id="p-${i}"></pre>`;
+  card.querySelector('pre').textContent = text;
+  const btn = card.querySelector('button');
+  btn.addEventListener('click', () => {
+    const done = () => { btn.textContent = 'Скопировано'; btn.classList.add('done'); setTimeout(() => { btn.textContent = 'Скопировать'; btn.classList.remove('done'); }, 1800); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(card.querySelector('pre')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = 'Выделено, скопируй'; };
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+  box.appendChild(card);
+});
+</script>
