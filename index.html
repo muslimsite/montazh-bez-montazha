@@ -105,32 +105,8 @@ nav.top .go:hover{color:#1A1408;background-position:100% 0}
 .screen .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;animation:breathe 9s ease-in-out infinite alternate}
 @keyframes breathe{from{transform:scale(1.02)}to{transform:scale(1.09)}}
 .screen::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));z-index:1}
-.screen .toon{position:absolute;inset:0;width:100%;height:100%;display:block}
-.screen:has(.toon)::after{height:30%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
-.toon .tw{animation:tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-@keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
-.toon .moon{animation:moon 9s ease-in-out infinite alternate}
-@keyframes moon{to{transform:translate(-8px,6px)}}
-.toon .tlabel{font:600 13px var(--display);fill:#E7CB8C;letter-spacing:.04em}
-.toon .tlabel tspan{animation:dot 1.4s infinite}
-.toon .tlabel .d2{animation-delay:.2s}.toon .tlabel .d3{animation-delay:.4s}
-@keyframes dot{0%,100%{opacity:.2}50%{opacity:1}}
-.toon .tl{transform-box:fill-box;transform-origin:left center;animation:grow 6s cubic-bezier(.2,.8,.2,1) infinite}
-@keyframes grow{0%{transform:scaleX(0);opacity:1}12%{transform:scaleX(1)}88%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
-.toon .ph{animation:ph 3s linear infinite}
-@keyframes ph{from{transform:translateX(0)}to{transform:translateX(166px)}}
-.toon .spark{animation:spark 2.4s ease-in-out infinite}
-.toon .spark path{transform-box:fill-box;transform-origin:center;animation:spin 2.4s linear infinite}
-@keyframes spark{0%,100%{opacity:.6}50%{opacity:1}}
-@keyframes spin{to{transform:rotate(180deg) scale(1.15)}}
-.toon .rc{opacity:0;animation:fly 6s cubic-bezier(.3,.7,.3,1) infinite}
-@keyframes fly{0%{opacity:0;transform:translate(0,30px) scale(.3)}8%{opacity:1}55%{opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1.15)}75%,100%{opacity:0;transform:translate(var(--x),calc(var(--y) - 18px)) rotate(var(--r)) scale(1.15)}}
-.toon .sis{animation:sis 4s ease-in-out infinite alternate}
-@keyframes sis{to{transform:translateY(-2px)}}
-.toon .steam{opacity:0;animation:steam 3s ease-out infinite}
-.toon .s2{animation-delay:1.5s}
-@keyframes steam{0%{opacity:0;transform:translateY(4px)}30%{opacity:.8}100%{opacity:0;transform:translateY(-14px)}}
-.toon .badge text{font:700 13px var(--display);fill:#F6E3B0}
+.screen .deco{position:absolute;inset:0;width:100%;height:100%;display:block}
+.screen:has(.deco)::after{height:28%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.3))}
 .screen .subs{position:absolute;left:14px;right:14px;bottom:20%;text-align:center;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.18;color:#fff;text-transform:uppercase;z-index:2;min-height:3.6em}
 .screen .subs span{transition:color .2s,background .2s;padding:0 3px;border-radius:5px}
 .screen .subs span.hot{background:var(--goldmetal);background-size:200% 100%;color:#1A1408}
@@ -453,37 +429,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       <div class="screen">
         <div class="bars"><i class="on"><span></span></i><i class="run"><span></span></i><i><span></span></i></div>
         <div class="acc"><img alt="" src="img/avatar.jpg">Медина</div>
-        <svg class="toon" viewBox="0 0 300 616" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3B0"/><stop offset=".5" stop-color="#C9A45E"/><stop offset="1" stop-color="#8A6A2F"/></linearGradient>
-            <linearGradient id="th" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9CF96"/><stop offset="1" stop-color="#B8924E"/></linearGradient>
-            <radialGradient id="tglow"><stop offset="0" stop-color="#E7CB8C" stop-opacity=".55"/><stop offset="1" stop-color="#E7CB8C" stop-opacity="0"/></radialGradient>
-          </defs>
-          <g fill="#F3E2B5"><circle class="tw" cx="175" cy="147" r="1.6" style="animation-delay:1.95s"/><circle class="tw" cx="47" cy="344" r="0.8" style="animation-delay:1.10s"/><circle class="tw" cx="39" cy="329" r="1" style="animation-delay:0.11s"/><circle class="tw" cx="232" cy="284" r="0.8" style="animation-delay:0.72s"/><circle class="tw" cx="227" cy="100" r="0.8" style="animation-delay:2.84s"/><circle class="tw" cx="41" cy="365" r="1.6" style="animation-delay:0.15s"/><circle class="tw" cx="123" cy="93" r="1" style="animation-delay:0.87s"/><circle class="tw" cx="83" cy="346" r="0.8" style="animation-delay:1.71s"/><circle class="tw" cx="102" cy="122" r="1" style="animation-delay:1.12s"/><circle class="tw" cx="290" cy="102" r="0.8" style="animation-delay:1.86s"/><circle class="tw" cx="264" cy="342" r="1.6" style="animation-delay:2.33s"/><circle class="tw" cx="248" cy="369" r="1.6" style="animation-delay:1.08s"/><circle class="tw" cx="137" cy="162" r="1" style="animation-delay:0.25s"/><circle class="tw" cx="163" cy="338" r="1.6" style="animation-delay:2.63s"/><circle class="tw" cx="239" cy="217" r="0.8" style="animation-delay:0.35s"/><circle class="tw" cx="224" cy="154" r="1.3" style="animation-delay:0.46s"/><circle class="tw" cx="260" cy="285" r="0.8" style="animation-delay:2.89s"/><circle class="tw" cx="49" cy="355" r="1.3" style="animation-delay:1.02s"/><circle class="tw" cx="189" cy="374" r="1.6" style="animation-delay:1.74s"/><circle class="tw" cx="243" cy="105" r="0.8" style="animation-delay:2.83s"/><circle class="tw" cx="252" cy="103" r="0.8" style="animation-delay:2.19s"/><circle class="tw" cx="168" cy="365" r="1.6" style="animation-delay:0.85s"/></g>
-          <g class="moon"><circle cx="262" cy="80" r="16" fill="url(#tg)"/><circle cx="269" cy="74" r="14.5" fill="#17150F"/></g>
-          <text class="tlabel" x="150" y="206" text-anchor="middle">ИИ монтирует<tspan class="d1">.</tspan><tspan class="d2">.</tspan><tspan class="d3">.</tspan></text>
-          <ellipse cx="150" cy="268" rx="130" ry="80" fill="url(#tglow)"/>
-          <g class="rcs" transform="translate(150 236)"><g class="rc" style="--x:-92px;--y:-112px;--r:-14deg;animation-delay:0.0s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:-46px;--y:-132px;--r:-6deg;animation-delay:1.2s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:0px;--y:-140px;--r:0deg;animation-delay:2.4s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:46px;--y:-132px;--r:6deg;animation-delay:3.6s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:92px;--y:-112px;--r:14deg;animation-delay:4.8s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g></g>
-          <rect x="56" y="218" width="188" height="112" rx="9" fill="#100F0C" stroke="url(#tg)" stroke-width="2"/>
-          <rect x="66" y="228" width="74" height="32" rx="4" fill="#2A241A"/>
-          <path d="M66 260 L88 240 L100 250 L116 236 L140 260 Z" fill="#C9A45E" opacity=".85"/>
-          <circle cx="126" cy="238" r="4" fill="#F6E3B0"/>
-          <g class="spark" transform="translate(196 244)"><path d="M0 -12 C1 -4 4 -1 12 0 C4 1 1 4 0 12 C-1 4 -4 1 -12 0 C-4 -1 -1 -4 0 -12Z" fill="url(#tg)"/></g>
-          <rect class="tl" x="66" y="268" width="34" height="10" rx="2.5" fill="#C9A45E" style="animation-delay:0.00s"/><rect class="tl" x="104" y="268" width="22" height="10" rx="2.5" fill="#8C7A5C" style="animation-delay:0.18s"/><rect class="tl" x="130" y="268" width="40" height="10" rx="2.5" fill="#E7CB8C" style="animation-delay:0.36s"/><rect class="tl" x="174" y="268" width="26" height="10" rx="2.5" fill="#C9A45E" style="animation-delay:0.54s"/><rect class="tl" x="204" y="268" width="30" height="10" rx="2.5" fill="#8C7A5C" style="animation-delay:0.72s"/><rect class="tl" x="66" y="282" width="20" height="10" rx="2.5" fill="#6E8BB0" style="animation-delay:0.90s"/><rect class="tl" x="90" y="282" width="46" height="10" rx="2.5" fill="#7F9FC4" style="animation-delay:1.08s"/><rect class="tl" x="140" y="282" width="30" height="10" rx="2.5" fill="#6E8BB0" style="animation-delay:1.26s"/><rect class="tl" x="174" y="282" width="54" height="10" rx="2.5" fill="#9AB6D6" style="animation-delay:1.44s"/><rect class="tl" x="66" y="296" width="60" height="10" rx="2.5" fill="#7E6BB0" style="animation-delay:1.62s"/><rect class="tl" x="130" y="296" width="34" height="10" rx="2.5" fill="#9A86C9" style="animation-delay:1.80s"/><rect class="tl" x="168" y="296" width="64" height="10" rx="2.5" fill="#7E6BB0" style="animation-delay:1.98s"/>
-          <rect class="ph" x="66" y="264" width="2" height="46" fill="#F6E3B0"/>
-          <path d="M40 330 L260 330 L276 344 L24 344 Z" fill="#2A2620" stroke="#5A4A2E"/>
-          <g class="sis">
-            <path d="M34 616 C38 572 58 552 86 549 C114 552 134 572 138 616 Z" fill="#2A2520" stroke="#6B5530" stroke-width="1.5"/>
-            <path d="M86 492 C67 492 59 510 61 530 C57 546 51 558 47 572 C72 562 100 562 125 572 C121 558 115 546 111 530 C113 510 105 492 86 492 Z" fill="url(#th)"/>
-            <ellipse cx="86" cy="523" rx="13.5" ry="16.5" fill="#EAD3B2"/>
-            <circle cx="104" cy="585" r="6" fill="#EAD3B2"/>
-            <rect x="106" y="573" width="17" height="15" rx="4" fill="#F6EEDC" stroke="#C9A45E" stroke-width="1.5"/>
-            <path d="M123 577 q6 1 0 8" fill="none" stroke="#C9A45E" stroke-width="1.6"/>
-            <path class="steam s1" d="M111 567 q-4 -7 0 -12 q4 -6 0 -12" fill="none" stroke="#F3E2B5" stroke-width="1.6" stroke-linecap="round"/>
-            <path class="steam s2" d="M118 567 q-4 -7 0 -12 q4 -6 0 -12" fill="none" stroke="#F3E2B5" stroke-width="1.6" stroke-linecap="round"/>
-          </g>
-          <g class="badge" transform="translate(214 560)"><rect x="-58" y="-17" width="116" height="34" rx="17" fill="#1A1712" stroke="url(#tg)" stroke-width="1.5"/><text x="0" y="5" text-anchor="middle">готово: <tspan id="toonN">0</tspan> рилс</text></g>
-        </svg>
+        <canvas class="deco" id="deco" aria-hidden="true"></canvas>
         <p class="subs" id="subs"></p>
       </div>
       <div class="bubble c" id="bc">РИЛС</div>
@@ -847,11 +793,6 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     phone.style.setProperty('--ry', (k * 18).toFixed(2) + 'deg');
   });
 
-  /* мультик в телефоне: счётчик готовых рилс */
-  const tn = document.getElementById('toonN');
-  if (tn && !reduce) { let n = 0; setInterval(() => { n = n % 5 + 1; tn.textContent = n; }, 1200); }
-  else if (tn) tn.textContent = 5;
-
   /* субтитры в телефоне: слово подсвечивается под голос */
   const lines = [['Этот','рилс','сделал','ИИ'], ['Без','съёмки','и','монтажа'], ['150','рилс','в','месяц'], ['Пиши','РИЛС','в','комментариях']];
   const subs = document.getElementById('subs'), bc = document.getElementById('bc'), bd = document.getElementById('bd');
@@ -903,4 +844,474 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       if (on) { v.muted = false; v.currentTime = 0; v.play().catch(() => {}); b.classList.add('on'); b.setAttribute('aria-label','Выключить звук'); } else b.setAttribute('aria-label','Включить звук'); };
     b.addEventListener('click', toggle); v.addEventListener('click', toggle); });
 })();
+</script>
+<script type="module">
+// Движок арт-деко из lemo-opuscar (MIT License, Copyright (c) 2026 LemoLab)
+// Art Deco engine · core drawing primitives (palette, metal gold, gold line, airbrush fills, ornaments).
+// Every function takes the 2D context `g` first and never keeps global state, so it can draw into any canvas.
+const TAU = Math.PI * 2;
+const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const ss = t => { t = clamp(t); return t * t * (3 - 2 * t); };
+const eio = t => { t = clamp(t); return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+const eo = t => 1 - Math.pow(1 - clamp(t), 3);
+const ei = t => Math.pow(clamp(t), 3);
+const back = (t, s = 1.7) => { t = clamp(t) - 1; return 1 + t * t * ((s + 1) * t + s); };
+function mulberry(seed) { return function () { seed |= 0; seed = seed + 0x6D2B79F5 | 0; let t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+const hash = n => { n = Math.sin(n * 127.1 + 311.7) * 43758.5453; return n - Math.floor(n); };
+
+// ---------- palette ----------
+const C = {
+  ink: '#060504',        // deepest black (lacquer)
+  black: '#0d0b09',      // warm black ground
+  night: '#0a0e16',      // night sky black-blue
+  gold0: '#6f5220',      // shadow gold
+  gold1: '#c9a24b',      // base gold   (brief: #C9A24B → #F3D98B)
+  gold2: '#f3d98b',      // light gold
+  goldHi: '#fff4d2',     // specular
+  ivory: '#f2e8d5',
+  ivoryD: '#cbbd9f',
+  emerald: '#1d6b57', emeraldD: '#0c3a2f', emeraldL: '#3f9a7f',
+  burg: '#8e1b2e', burgD: '#4a0c17', burgL: '#c23a4e',
+  plum: '#2b2130', plumL: '#51405a',
+  skin: '#eebd92', skinD: '#c48762', skinL: '#fbd8b4',
+  bulb: '#ffe6a3', bulbCore: '#fffaf0', bulbGlow: '255,196,92',
+};
+
+const hx = h => { h = h.slice(1); if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2]; return parseInt(h, 16); };
+function rgba(hex, a) {
+  const n = hx(hex);
+  return `rgba(${n >> 16 & 255},${n >> 8 & 255},${n & 255},${a})`;
+}
+function mix(h1, h2, t) {
+  const a = hx(h1), b = hx(h2);
+  const r = Math.round(lerp(a >> 16 & 255, b >> 16 & 255, t)), gg = Math.round(lerp(a >> 8 & 255, b >> 8 & 255, t)), bb = Math.round(lerp(a & 255, b & 255, t));
+  return '#' + ((1 << 24) | (r << 16) | (gg << 8) | bb).toString(16).slice(1);
+}
+
+// ---------- metal gold ----------
+// Banded metallic gradient along the segment (x0,y0)->(x1,y1). `sheen` (0..1) slides the bright band (animate it for a glint sweep).
+function goldGrad(g, x0, y0, x1, y1, { sheen = .38, hot = 1, tint = null } = {}) {
+  const gr = g.createLinearGradient(x0, y0, x1, y1);
+  const G0 = tint ? mix(C.gold0, tint, .55) : C.gold0, G1 = tint ? mix(C.gold1, tint, .45) : C.gold1, G2 = tint ? mix(C.gold2, tint, .3) : C.gold2;
+  const s = clamp(sheen, .08, .92);
+  gr.addColorStop(0, G0);
+  gr.addColorStop(clamp(s - .3), G1);
+  gr.addColorStop(clamp(s - .08), G2);
+  gr.addColorStop(s, hot > .5 ? C.goldHi : G2);
+  gr.addColorStop(clamp(s + .1), G1);
+  gr.addColorStop(clamp(s + .32), G0);
+  gr.addColorStop(1, G1);
+  return gr;
+}
+// Solid-ish gold for small things (keeps the metal feel without a per-shape gradient).
+function goldFlat(g, x, y, r, sheen = .35) { return goldGrad(g, x - r, y - r, x + r, y + r, { sheen }); }
+
+// ---------- paths ----------
+function toPath(pts, closed = false) {
+  if (pts instanceof Path2D) return pts;
+  const p = new Path2D();
+  pts.forEach((q, i) => i ? p.lineTo(q[0], q[1]) : p.moveTo(q[0], q[1]));
+  if (closed) p.closePath();
+  return p;
+}
+// Mitred parallel offset of a polyline (positive d = left of travel direction).
+function offsetPoly(pts, d, closed = false) {
+  const n = pts.length, out = [];
+  const nrm = (a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], L = Math.hypot(dx, dy) || 1; return [-dy / L, dx / L]; };
+  for (let i = 0; i < n; i++) {
+    const pv = i > 0 ? pts[i - 1] : (closed ? pts[n - 2] : null), nx = i < n - 1 ? pts[i + 1] : (closed ? pts[1] : null);
+    let m;
+    if (pv && nx) { const a = nrm(pv, pts[i]), b = nrm(pts[i], nx); const s = [a[0] + b[0], a[1] + b[1]], L = Math.hypot(s[0], s[1]) || 1; const cos = (s[0] * a[0] + s[1] * a[1]) / L; m = [s[0] / L / Math.max(.25, cos), s[1] / L / Math.max(.25, cos)]; }
+    else m = pv ? nrm(pv, pts[i]) : nrm(pts[i], nx);
+    out.push([pts[i][0] + m[0] * d, pts[i][1] + m[1] * d]);
+  }
+  return out;
+}
+function polyLen(pts) { let L = 0; for (let i = 1; i < pts.length; i++) L += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]); return L; }
+// Leading part of a polyline (0..1 of its length) — "the gold line draws itself".
+function polyPart(pts, f) {
+  if (f >= 1) return pts; if (f <= 0) return [pts[0]];
+  const L = polyLen(pts) * f; let acc = 0; const out = [pts[0]];
+  for (let i = 1; i < pts.length; i++) {
+    const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+    if (acc + d >= L) { const k = (L - acc) / d; out.push([lerp(pts[i - 1][0], pts[i][0], k), lerp(pts[i - 1][1], pts[i][1], k)]); return out; }
+    acc += d; out.push(pts[i]);
+  }
+  return out;
+}
+function arcPts(cx, cy, r, a0, a1, n = 48, ry = r) { const o = []; for (let i = 0; i <= n; i++) { const a = lerp(a0, a1, i / n); o.push([cx + Math.cos(a) * r, cy + Math.sin(a) * ry]); } return o; }
+function rectPts(x, y, w, h) { return [[x, y], [x + w, y], [x + w, y + h], [x, y + h], [x, y]]; }
+
+// ---------- gold line ----------
+// The signature stroke: a thin gold line with an engraved dark underline and a hairline highlight.
+// opts: w (px), part (0..1 draw-on), double (gap px: a parallel twin line), glow (0..1), sheen, closed, alpha, color (override: any hex = "the one colour").
+function gline(g, pts, o = {}) {
+  const { w = 2.4, part = 1, closed = false, glow = 0, sheen = .38, alpha = 1, color = null, cap = 'butt', bb = null } = o;
+  let P = pts;
+  if (!(pts instanceof Path2D) && part < 1) P = polyPart(closed ? [...pts, pts[0]] : pts, part);
+  const path = P instanceof Path2D ? P : toPath(P, closed && part >= 1);
+  g.save(); g.globalAlpha *= alpha; g.lineCap = cap; g.lineJoin = 'miter'; g.miterLimit = 6;
+  // gradient extent
+  let x0 = 0, y0 = 0, x1 = g.canvas.width, y1 = g.canvas.height;
+  if (bb) [x0, y0, x1, y1] = bb;
+  if (glow > 0) {
+    g.shadowColor = color ? rgba(color, .8 * glow) : `rgba(255,205,110,${.75 * glow})`; g.shadowBlur = 14 * glow + w * 2;
+    g.strokeStyle = color || C.gold1; g.lineWidth = w; g.stroke(path); g.shadowBlur = 0;
+  }
+  g.strokeStyle = color ? mix(color, '#000000', .55) : C.gold0; g.lineWidth = w + 1.6; g.globalAlpha *= .85; g.stroke(path); g.globalAlpha /= .85;
+  g.strokeStyle = color ? color : goldGrad(g, x0, y0, x1, y1, { sheen }); g.lineWidth = w; g.stroke(path);
+  if (w >= 2) { g.strokeStyle = color ? mix(color, '#ffffff', .55) : 'rgba(255,246,214,.55)'; g.lineWidth = Math.max(.6, w * .28); g.stroke(path); }
+  if (o.double && !(pts instanceof Path2D)) {  // parallel twin lines at ±gap (mitred offsets)
+    const gap = o.double; const base = part < 1 ? P : pts;
+    for (const d of [-gap, gap]) { const q = offsetPoly(base, d, closed && part >= 1); const qp = toPath(q, closed && part >= 1);
+      g.strokeStyle = color || goldGrad(g, x0, y0, x1, y1, { sheen: sheen + .15 }); g.lineWidth = w * .6; g.stroke(qp); }
+  }
+  g.restore();
+}
+// Cheap multi-line: n parallel offsets of a straight segment (for piers, rules and bands).
+function rules(g, x0, y0, x1, y1, n = 3, gap = 6, w = 1.6, o = {}) {
+  const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy) || 1, nx = -dy / L, ny = dx / L;
+  for (let i = 0; i < n; i++) { const k = (i - (n - 1) / 2) * gap; gline(g, [[x0 + nx * k, y0 + ny * k], [x1 + nx * k, y1 + ny * k]], { w: i === (n - 1) / 2 ? w * 1.4 : w, ...o }); }
+}
+
+// ---------- airbrush fill (Cassandre) ----------
+// A hard-edged shape with a soft gradient inside. `light` = direction the light comes from (radians, 0 = from the right, -PI/2 = from the top).
+// stops: [dark, base, light] colours; `rim` adds a thin gold edge on the lit side.
+function airbrush(g, pts, { base = C.burg, dark = null, light = null, dir = -2.3, rim = 0, rimColor = null, spread = 1, closed = true, bbox = null, radial = null, alpha = 1 } = {}) {
+  const path = pts instanceof Path2D ? pts : toPath(pts, closed);
+  let x0, y0, x1, y1;
+  if (bbox) [x0, y0, x1, y1] = bbox; else if (!(pts instanceof Path2D)) { x0 = Infinity; y0 = Infinity; x1 = -Infinity; y1 = -Infinity; for (const [x, y] of pts) { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y); } } else { x0 = 0; y0 = 0; x1 = 100; y1 = 100; }
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, R = Math.max(x1 - x0, y1 - y0) * .5 * spread;
+  const D = dark || mix(base, '#000000', .62), L = light || mix(base, '#ffffff', .38);
+  let gr;
+  if (radial) { const [rx, ry, rr] = radial; gr = g.createRadialGradient(rx, ry, 0, rx, ry, rr); gr.addColorStop(0, L); gr.addColorStop(.45, base); gr.addColorStop(1, D); }
+  else { const ux = Math.cos(dir), uy = Math.sin(dir); gr = g.createLinearGradient(cx + ux * R, cy + uy * R, cx - ux * R, cy - uy * R); gr.addColorStop(0, L); gr.addColorStop(.42, base); gr.addColorStop(1, D); }
+  g.save(); g.globalAlpha *= alpha; g.fillStyle = gr; g.fill(path);
+  if (rim) {
+    g.save(); g.clip(path);
+    const ux = Math.cos(dir), uy = Math.sin(dir);
+    g.translate(-ux * rim * 1.6, -uy * rim * 1.6);
+    g.strokeStyle = rimColor || C.gold2; g.lineWidth = rim * 2; g.globalAlpha *= .9; g.stroke(path);
+    g.restore();
+  }
+  g.restore();
+  return path;
+}
+
+// ---------- ornaments ----------
+// Sunburst: rays from (cx,cy). mode 'lines' (gold hairlines) | 'wedges' (alternating tone wedges) | 'both'.
+function sunburst(g, cx, cy, o = {}) {
+  const { rays = 48, r0 = 0, r1 = 2400, rot = 0, mode = 'lines', w = 1.6, alpha = 1, part = 1, a0 = 0, a1 = TAU, colorA = 'rgba(201,162,75,.10)', colorB = 'rgba(0,0,0,0)', glow = 0, taper = true, sheen = .4 } = o;
+  g.save(); g.globalAlpha *= alpha;
+  const full = Math.abs(a1 - a0 - TAU) < 1e-6, n = rays, step = (a1 - a0) / (full ? n : n - 1 || 1);
+  if (mode !== 'lines') {
+    for (let i = 0; i < n; i++) {
+      if (i % 2) continue;
+      const a = a0 + rot + i * step, b = a + step;
+      g.beginPath(); g.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0);
+      g.lineTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1); g.lineTo(cx + Math.cos(b) * r1, cy + Math.sin(b) * r1);
+      g.lineTo(cx + Math.cos(b) * r0, cy + Math.sin(b) * r0); g.closePath();
+      g.fillStyle = colorA; g.fill();
+    }
+  }
+  if (mode !== 'wedges') {
+    const gr = goldGrad(g, cx - r1, cy - r1, cx + r1, cy + r1, { sheen });
+    if (glow) { g.shadowColor = `rgba(255,205,110,${.6 * glow})`; g.shadowBlur = 10 * glow; }
+    for (let i = 0; i < n; i++) {
+      const a = a0 + rot + i * step, rr = lerp(r0, r1, clamp(part * (1 + hash(i) * .0)));
+      const long = i % 2 === 0;
+      const re = long ? rr : lerp(r0, rr, .72);
+      if (taper) {
+        const half = w * .5 / Math.max(40, r0 + 40), ww = long ? 1 : .6;
+        g.beginPath(); g.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0);
+        const pa = w * ww * .5, nx = -Math.sin(a), ny = Math.cos(a);
+        g.lineTo(cx + Math.cos(a) * re + nx * pa * 1.8, cy + Math.sin(a) * re + ny * pa * 1.8);
+        g.lineTo(cx + Math.cos(a) * re - nx * pa * 1.8, cy + Math.sin(a) * re - ny * pa * 1.8); g.closePath();
+        g.fillStyle = gr; g.fill();
+      } else {
+        g.beginPath(); g.moveTo(cx + Math.cos(a) * r0, cy + Math.sin(a) * r0); g.lineTo(cx + Math.cos(a) * re, cy + Math.sin(a) * re);
+        g.strokeStyle = gr; g.lineWidth = long ? w : w * .6; g.stroke();
+      }
+    }
+  }
+  g.restore();
+}
+
+// Stepped (ziggurat) arch: nested outlines, each with `steps` setbacks and a round or pointed crown.
+// Returns the inner opening polygon (use it as a clip / window).
+function stepArchPts(cx, base, w, h, { steps = 3, stepW = null, stepH = null, crown = 'round' } = {}) {
+  const sw = stepW ?? w * .09, sh = stepH ?? h * .085;
+  const pts = []; const half = w / 2;
+  pts.push([cx - half, base]);
+  let x = cx - half, y = base - (h - steps * sh - (crown === 'round' ? (half - steps * sw) : (half - steps * sw) * .9));
+  pts.push([x, y]);
+  for (let i = 0; i < steps; i++) { x += sw; pts.push([x, y]); y -= sh; pts.push([x, y]); }
+  const r = cx - x;
+  if (crown === 'round') { for (let i = 1; i < 32; i++) { const a = Math.PI + Math.PI * i / 32; pts.push([cx + Math.cos(a) * r, y + Math.sin(a) * r]); } }
+  else if (crown === 'point') { pts.push([cx, y - r * .9]); }
+  else if (crown === 'flat') { pts.push([x, y - r * .25]); pts.push([cx + r, y - r * .25]); }
+  const R = []; for (let i = pts.length - 1; i >= 0; i--) R.push([2 * cx - pts[i][0], pts[i][1]]);
+  // mirror right half (skip duplicate top)
+  const out = pts.concat(crown === 'point' ? R.slice(1) : R);
+  return out;
+}
+// Arch frame = several nested stepped arches in gold + optional sunburst in the lunette.
+function archFrame(g, cx, base, w, h, o = {}) {
+  const { rings = 3, gap = 14, steps = 3, crown = 'round', part = 1, fill = null, burst = true, glow = 0, sheen = .4, lw = 2.4 } = o;
+  const inner = stepArchPts(cx, base, w - rings * gap * 2, h - rings * gap, { steps, crown });
+  if (fill) { g.save(); g.fillStyle = fill; g.fill(toPath(inner, true)); g.restore(); }
+  if (burst) {
+    g.save(); g.clip(toPath(inner, true));
+    const top = Math.min(...inner.map(p => p[1]));
+    sunburst(g, cx, base, { rays: 36, r0: 0, r1: (base - top) * 1.2 * part, a0: Math.PI, a1: TAU, mode: 'lines', w: 1.4, alpha: .45 * part, sheen });
+    g.restore();
+  }
+  for (let i = 0; i <= rings; i++) {
+    const pts = stepArchPts(cx, base, w - i * gap * 2, h - i * gap, { steps, crown });
+    gline(g, pts, { w: i === 0 ? lw * 1.3 : lw * .8, part, glow: i === 0 ? glow : 0, sheen: sheen + i * .05 });
+  }
+  return inner;
+}
+
+// Fan (scallop) — the deco fan motif. Opens from 0..1.
+function fan(g, cx, cy, r, o = {}) {
+  const { a0 = Math.PI, a1 = TAU, ribs = 9, open = 1, fill = C.gold1, line = true, rot = 0, ring = .32 } = o;
+  const mid = (a0 + a1) / 2, h = (a1 - a0) / 2 * open, A0 = mid - h + rot, A1 = mid + h + rot;
+  g.save();
+  const gr = g.createRadialGradient(cx, cy, 0, cx, cy, r); gr.addColorStop(0, mix(fill, '#000', .5)); gr.addColorStop(.6, fill); gr.addColorStop(1, mix(fill, '#fff', .35));
+  g.beginPath(); g.moveTo(cx, cy); g.arc(cx, cy, r, A0, A1); g.closePath(); g.fillStyle = gr; g.fill();
+  if (line) {
+    for (let i = 0; i <= ribs; i++) { const a = lerp(A0, A1, i / ribs); gline(g, [[cx + Math.cos(a) * r * ring, cy + Math.sin(a) * r * ring], [cx + Math.cos(a) * r, cy + Math.sin(a) * r]], { w: 1.2 }); }
+    gline(g, arcPts(cx, cy, r, A0, A1, 40), { w: 2 }); gline(g, arcPts(cx, cy, r * ring, A0, A1, 20), { w: 1.4 });
+  }
+  g.restore();
+}
+
+// Fish-scale (imbricated scallops) pattern filling a rect; `r` = scale radius.
+function fishScale(g, x, y, w, h, r, { stroke = 'rgba(201,162,75,.7)', fillA = '#0e0c09', fillB = null, lw = 1.3 } = {}) {
+  g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip();
+  const dy = r * .62; let row = 0;
+  for (let yy = y - r; yy < y + h + r; yy += dy, row++) {       // later (lower) rows overlap the ones above
+    const off = (row % 2) * r;
+    for (let xx = x - 2 * r + off; xx < x + w + 2 * r; xx += 2 * r) {
+      g.beginPath(); g.arc(xx, yy, r, 0, Math.PI); g.closePath();
+      const k = ((row * 7 + Math.round((xx - x) / r) * 3) % 5);
+      g.fillStyle = fillB && k === 0 ? fillB : fillA; g.fill();
+      g.beginPath(); g.arc(xx, yy, r, 0, Math.PI); g.strokeStyle = stroke; g.lineWidth = lw; g.stroke();
+      g.beginPath(); g.arc(xx, yy, r * .62, Math.PI * .15, Math.PI * .85); g.lineWidth = lw * .6; g.stroke();
+    }
+  }
+  g.restore();
+}
+
+// Chevron band (V-shapes) between x0..x1 at y, pointing down.
+function chevrons(g, x0, x1, y, { n = 8, h = 20, w = 1.6, rows = 3, gap = 8, color = null } = {}) {
+  const step = (x1 - x0) / n;
+  for (let r = 0; r < rows; r++) {
+    const pts = []; const yy = y + r * gap;
+    for (let i = 0; i <= n; i++) pts.push([x0 + i * step, yy + (i % 2 ? h : 0)]);
+    gline(g, pts, { w, color });
+  }
+}
+
+// Four-point glint star (Gatsby sparkle).
+function sparkle(g, x, y, r, { rot = 0, alpha = 1, color = C.goldHi, glow = 1 } = {}) {
+  if (r <= 0 || alpha <= 0) return;
+  g.save(); g.globalAlpha *= alpha; g.translate(x, y); g.rotate(rot);
+  if (glow) { const gr = g.createRadialGradient(0, 0, 0, 0, 0, r * 1.2); gr.addColorStop(0, rgba(color, .55)); gr.addColorStop(1, rgba(color, 0)); g.fillStyle = gr; g.fillRect(-r * 1.2, -r * 1.2, r * 2.4, r * 2.4); }
+  g.beginPath();
+  const k = r * .16;
+  g.moveTo(0, -r); g.quadraticCurveTo(k, -k, r, 0); g.quadraticCurveTo(k, k, 0, r); g.quadraticCurveTo(-k, k, -r, 0); g.quadraticCurveTo(-k, -k, 0, -r);
+  g.fillStyle = color; g.fill();
+  g.restore();
+}
+
+// Cassandre speed lines: parallel tapering gold lines trailing behind a moving point along direction `ang`.
+function speedLines(g, x, y, ang, { n = 5, len = 260, spread = 40, w = 2.2, color = null, alpha = 1, seed = 1 } = {}) {
+  const ux = Math.cos(ang), uy = Math.sin(ang), nx = -uy, ny = ux; const R = mulberry(seed);
+  g.save(); g.globalAlpha *= alpha;
+  for (let i = 0; i < n; i++) {
+    const o = (i - (n - 1) / 2) / Math.max(1, (n - 1) / 2) * spread * .5, L = len * (.55 + .45 * R()), st = R() * len * .15;
+    const sx = x - ux * st + nx * o, sy = y - uy * st + ny * o;
+    const gr = g.createLinearGradient(sx, sy, sx - ux * L, sy - uy * L);
+    const c = color || C.gold2; gr.addColorStop(0, rgba(c, 1)); gr.addColorStop(1, rgba(c, 0));
+    g.beginPath(); g.moveTo(sx + nx * w * .5, sy + ny * w * .5); g.lineTo(sx - ux * L, sy - uy * L); g.lineTo(sx - nx * w * .5, sy - ny * w * .5); g.closePath();
+    g.fillStyle = gr; g.fill();
+  }
+  g.restore();
+}
+
+// Soft light pool / uplight glow (airbrush).
+function glow(g, x, y, r, color = '#ffc86a', a = .5, sy = 1) {
+  g.save(); g.translate(x, y); g.scale(1, sy);
+  const gr = g.createRadialGradient(0, 0, 0, 0, 0, r); gr.addColorStop(0, rgba(color, a)); gr.addColorStop(.4, rgba(color, a * .35)); gr.addColorStop(1, rgba(color, 0));
+  g.fillStyle = gr; g.fillRect(-r, -r, 2 * r, 2 * r); g.restore();
+}
+// Searchlight beam (airbrush cone).
+function beam(g, x, y, ang, len, wid, a = .22, color = '#f6ecd0') {
+  g.save(); g.translate(x, y); g.rotate(ang);
+  const gr = g.createLinearGradient(0, 0, len, 0); gr.addColorStop(0, rgba(color, a)); gr.addColorStop(1, rgba(color, 0));
+  g.beginPath(); g.moveTo(0, -wid * .06); g.lineTo(len, -wid / 2); g.lineTo(len, wid / 2); g.lineTo(0, wid * .06); g.closePath(); g.fillStyle = gr; g.fill();
+  g.restore();
+}
+
+// Vignette + warm black ground.
+function ground(g, W = 1920, H = 1080, { top = C.black, bot = C.ink, vig = .55 } = {}) {
+  const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, top); gr.addColorStop(1, bot); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  if (vig) vignette(g, W, H, vig);
+}
+function vignette(g, W = 1920, H = 1080, a = .55) {
+  const gr = g.createRadialGradient(W / 2, H / 2, H * .35, W / 2, H / 2, H * .95); gr.addColorStop(0, 'rgba(0,0,0,0)'); gr.addColorStop(1, `rgba(0,0,0,${a})`);
+  g.fillStyle = gr; g.fillRect(0, 0, W, H);
+}
+
+// ---------- any shape in this style ----------
+// Draw an arbitrary path the Art Deco way: airbrushed fill + gold keyline + optional sunburst halo, speed-line trail, glints.
+// `color` keeps its own hue (this is the "one colour" door: e.g. '#D97757' stays orange while everything else is gold/black/ivory).
+function drawShape(g, pts, o = {}) {
+  const { color = null, gold = true, closed = true, halo = 0, trail = null, glints = 0, lw = 2.6, dir = -2.3, part = 1, sheen = .4 } = o;
+  const path = pts instanceof Path2D ? pts : toPath(pts, closed);
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  if (!(pts instanceof Path2D)) for (const [x, y] of pts) { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y); }
+  const cx = (x0 + x1) / 2, cy = (y0 + y1) / 2, R = Math.max(x1 - x0, y1 - y0) / 2;
+  if (halo) { sunburst(g, cx, cy, { rays: 32, r0: R * 1.1, r1: R * (1.1 + 1.6 * halo), mode: 'lines', w: 2, alpha: .8 }); glow(g, cx, cy, R * 2.4, color || '#ffcf7a', .35 * halo); }
+  if (trail) speedLines(g, trail.x ?? cx, trail.y ?? cy, trail.ang ?? Math.PI, { n: trail.n ?? 5, len: trail.len ?? R * 5, spread: trail.spread ?? R * 1.2, w: trail.w ?? R * .22, color: color || C.gold2, seed: trail.seed ?? 3 });
+  if (closed && part >= 1) {
+    if (color) airbrush(g, path, { base: color, dir, bbox: [x0, y0, x1, y1] });
+    else { g.save(); g.fillStyle = goldGrad(g, x0, y0, x1, y1, { sheen }); g.fill(path); g.restore(); }
+  }
+  if (gold) gline(g, pts instanceof Path2D ? path : pts, { w: lw, closed, part, bb: [x0 - R, y0 - R, x1 + R, y1 + R], sheen });
+  for (let i = 0; i < glints; i++) sparkle(g, lerp(x0, x1, hash(i * 3.1 + 1)), lerp(y0, y1, hash(i * 7.7 + 2)), R * .25, { alpha: .9 });
+  return path;
+}
+// Four-pointed star path (handy for the "light point" motif).
+function starPts(cx, cy, r, k = .22, rot = 0, n = 4) {
+  const o = [];
+  for (let i = 0; i < n * 2; i++) { const a = rot - Math.PI / 2 + i * Math.PI / n, rr = i % 2 ? r * k : r; o.push([cx + Math.cos(a) * rr, cy + Math.sin(a) * rr]); }
+  return o;
+}
+
+// Сценка «ИИ монтирует» в стиле арт-деко для телефона на первом экране.
+const W = 540, H = 1110, CX = 270, T = 10;
+const cv = document.getElementById('deco'), g = cv.getContext('2d');
+const COUNTS = [0.8, 2.1, 3.4, 4.7, 6.0];
+const slotX = i => CX + (i - 2) * 74, SLOT_Y = 160;
+const bulbA = i => Math.PI + Math.PI * (0.18 + i * 0.16);
+const REEL = { x: CX, y: 505, r: 92 };
+
+function card(x, y, s, rot, sheen, alpha = 1) {
+  g.save(); g.globalAlpha *= alpha; g.translate(x, y); g.rotate(rot); g.scale(s, s);
+  const w = 46, h = 80, pts = [[-w / 2, -h / 2], [w / 2, -h / 2], [w / 2, h / 2], [-w / 2, h / 2]];
+  g.fillStyle = goldGrad(g, -w, -h / 2, w, h / 2, { sheen }); g.fill(toPath(pts, true));
+  gline(g, pts, { w: 1.6, closed: true, sheen: sheen + .2 });
+  g.beginPath(); g.moveTo(-8, -12); g.lineTo(12, 0); g.lineTo(-8, 12); g.closePath(); g.fillStyle = C.ink; g.fill();
+  g.restore();
+}
+
+function reel(t, spin) {
+  const { x, y, r } = REEL;
+  glow(g, x, y, r * 1.9, '#ffc86a', .22);
+  g.save(); g.translate(x, y); g.rotate(spin);
+  airbrush(g, arcPts(0, 0, r, 0, TAU, 64), { base: '#2a2216', dark: '#0d0b09', light: '#5c4a2a', rim: 1.5 });
+  gline(g, arcPts(0, 0, r, 0, TAU, 64), { w: 3.2, closed: true, glow: .35 });
+  gline(g, arcPts(0, 0, r * .8, 0, TAU, 64), { w: 1.4, closed: true });
+  for (let i = 0; i < 6; i++) {
+    const a = i * TAU / 6, hx = Math.cos(a) * r * .5, hy = Math.sin(a) * r * .5;
+    g.beginPath(); g.arc(hx, hy, r * .17, 0, TAU); g.fillStyle = C.ink; g.fill();
+    gline(g, arcPts(hx, hy, r * .17, 0, TAU, 24), { w: 1.2, closed: true });
+  }
+  g.beginPath(); g.arc(0, 0, r * .14, 0, TAU); g.fillStyle = goldFlat(g, 0, 0, r * .14, .5); g.fill();
+  g.restore();
+}
+
+function sister(t) {
+  // сестра в хиджабе, без лица, пьёт чай: изумрудный — единственный яркий цвет сцены
+  const bx = 128, by = H, bob = Math.sin(t * 1.6) * 2;
+  g.save(); g.translate(0, bob);
+  const abaya = [[bx - 92, by], [bx - 70, by - 120], [bx - 40, by - 168], [bx + 40, by - 168], [bx + 70, by - 120], [bx + 92, by]];
+  airbrush(g, abaya, { base: C.emerald, rim: 1.4 }); gline(g, abaya, { w: 1.6 });
+  const hij = [];
+  for (let i = 0; i <= 40; i++) { const a = Math.PI + Math.PI * i / 40; hij.push([bx + Math.cos(a) * 46, by - 205 + Math.sin(a) * 56]); }
+  hij.push([bx + 58, by - 150], [bx - 58, by - 150]);
+  airbrush(g, hij, { base: C.emerald, light: C.emeraldL, rim: 1.6 }); gline(g, hij, { w: 1.8, closed: true });
+  g.beginPath(); g.ellipse(bx, by - 205, 25, 31, 0, 0, TAU);
+  const fg = g.createLinearGradient(bx - 25, by - 236, bx + 25, by - 174); fg.addColorStop(0, C.skinL); fg.addColorStop(1, C.skinD); g.fillStyle = fg; g.fill();
+  // чашка
+  const cx = bx + 60, cy = by - 120;
+  g.beginPath(); g.arc(bx + 44, cy + 10, 10, 0, TAU); g.fillStyle = C.skin; g.fill();
+  const cup = [[cx - 16, cy - 12], [cx + 16, cy - 12], [cx + 12, cy + 14], [cx - 12, cy + 14]];
+  airbrush(g, cup, { base: C.ivory, dark: C.ivoryD }); gline(g, cup, { w: 1.4, closed: true });
+  for (let k = 0; k < 2; k++) {
+    const ph = (t * .6 + k * .5) % 1, sx = cx - 5 + k * 10;
+    const pts = []; for (let i = 0; i <= 12; i++) { const yy = cy - 18 - i * 3.2 - ph * 14; pts.push([sx + Math.sin(i * .7 + t * 3 + k) * 4, yy]); }
+    gline(g, pts, { w: 1.4, alpha: Math.sin(ph * Math.PI) * .9 });
+  }
+  g.restore();
+}
+
+function floor(t) {
+  const hy = 900;
+  const gr = g.createLinearGradient(0, hy, 0, H); gr.addColorStop(0, '#120f0b'); gr.addColorStop(1, '#050403'); g.fillStyle = gr; g.fillRect(0, hy, W, H - hy);
+  g.save(); g.globalAlpha = .28;
+  for (let i = -8; i <= 8; i++) gline(g, [[CX + i * 14, hy], [CX + i * 160, H]], { w: .9 });
+  for (let j = 1; j < 6; j++) { const y = hy + (H - hy) * Math.pow(j / 6, 1.8); gline(g, [[0, y], [W, y]], { w: .8 }); }
+  g.restore();
+  gline(g, [[0, hy], [W, hy]], { w: 1.6, sheen: (t / T) % 1 });
+}
+
+function render(t, first) {
+  const lt = t % T;
+  g.setTransform(cv.width / W, 0, 0, cv.height / H, 0, 0);
+  ground(g, W, H, { vig: .6 });
+  const sheen = (t * .12) % 1.3 - .15;
+  sunburst(g, CX, REEL.y, { rays: 64, r0: 120, r1: 900, rot: t * .04, mode: 'both', w: 1.3, alpha: .5, sheen, colorA: 'rgba(201,162,75,.07)' });
+  floor(t);
+  const draw = first ? eo(seg(t, 0, 1.6)) : 1;
+  archFrame(g, CX, 760, 440, 560, { rings: 3, gap: 13, steps: 3, part: draw, burst: false, glow: .4, sheen, lw: 2.2 });
+  // сколько рилс готово в этом круге
+  let n = 0; for (const c of COUNTS) if (lt >= c) n++;
+  const fade = 1 - ss(seg(lt, 8.8, 9.8));
+  const lastKick = COUNTS.reduce((m, c) => lt >= c ? lt - c : m, 9);
+  reel(t, t * .9 + ss(seg(lastKick, 0, .6)) * 1.2 + n * 1.2);
+  // лампочки по дуге: загораются по одной со вспышкой
+  for (let i = 0; i < 5; i++) {
+    const a = bulbA(i), x = REEL.x + Math.cos(a) * 150, y = REEL.y + Math.sin(a) * 150;
+    const on = lt >= COUNTS[i], since = lt - COUNTS[i];
+    let lit = on ? (since < .18 ? 1.6 - since / .18 * .6 : 1) * fade : .12;
+    if (lt > 7 && lt < 8.8) lit *= .65 + .35 * (Math.floor(lt * 10) % 5 === i ? 1.6 : 1);
+    glow(g, x, y, 34 * Math.max(.3, lit), '#ffc45c', .55 * Math.min(1, lit));
+    g.beginPath(); g.arc(x, y, 9, 0, TAU); g.fillStyle = lit > .3 ? mix(C.bulb, C.bulbCore, Math.min(1, lit - .3)) : '#3a3020'; g.fill();
+    gline(g, arcPts(x, y, 9, 0, TAU, 20), { w: 1.2, closed: true });
+  }
+  // ячейки и вылетающие рилс
+  for (let i = 0; i < 5; i++) {
+    const sx = slotX(i), rot = (i - 2) * .06;
+    gline(g, [[sx - 25, SLOT_Y - 42], [sx + 25, SLOT_Y - 42], [sx + 25, SLOT_Y + 42], [sx - 25, SLOT_Y + 42]], { w: 1, closed: true, alpha: .35 });
+    if (lt < COUNTS[i]) continue;
+    const k = eio(seg(lt - COUNTS[i], 0, .7));
+    const x = lerp(REEL.x, sx, k), y = lerp(REEL.y, SLOT_Y, k) - Math.sin(k * Math.PI) * 60;
+    if (k < 1) speedLines(g, x, y + 30, Math.PI / 2, { n: 4, len: 120 * (1 - k) + 20, spread: 30, w: 3, seed: i + 2 });
+    card(x, y, lerp(.4, 1, k), rot * k, sheen + i * .1, fade);
+    if (k >= 1 && lt - COUNTS[i] < 1) sparkle(g, sx + 18, SLOT_Y - 36, 14 * (1 - (lt - COUNTS[i] - .7) / .3), { rot: lt * 3 });
+  }
+  if (lt > 6.4 && lt < 8.8) { const p = seg(lt, 6.4, 7.2); sparkle(g, CX, REEL.y, 70 * Math.sin(p * Math.PI) + 20 * ss(seg(lt, 7.2, 7.6)) * (1 - seg(lt, 8.2, 8.8)), { rot: lt }); }
+  sister(t);
+  // счётчик
+  g.save(); g.font = '700 26px Tektur, system-ui, sans-serif'; g.textAlign = 'right';
+  g.fillStyle = goldGrad(g, 340, 1010, 520, 1060, { sheen }); g.fillText(`готово ${n}/5`, 512, 1056); g.restore();
+  vignette(g, W, H, .35);
+}
+
+function fit() { const r = cv.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2); cv.width = Math.round(r.width * d); cv.height = Math.round(r.height * d); }
+fit(); addEventListener('resize', fit);
+const reduceM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reduceM) render(7.6, false);
+else {
+  let t0 = null, vis = true, raf;
+  const loop = ts => { if (t0 === null) t0 = ts; const t = (ts - t0) / 1000; render(t, t < 2); raf = requestAnimationFrame(loop); };
+  new IntersectionObserver(es => { vis = es[0].isIntersecting; cancelAnimationFrame(raf); if (vis && !document.hidden) raf = requestAnimationFrame(loop); }).observe(cv);
+  document.addEventListener('visibilitychange', () => { cancelAnimationFrame(raf); if (!document.hidden && vis) raf = requestAnimationFrame(loop); });
+}
 </script>
