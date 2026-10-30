@@ -105,6 +105,32 @@ nav.top .go:hover{color:#1A1408;background-position:100% 0}
 .screen .shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;animation:breathe 9s ease-in-out infinite alternate}
 @keyframes breathe{from{transform:scale(1.02)}to{transform:scale(1.09)}}
 .screen::after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.75));z-index:1}
+.screen .toon{position:absolute;inset:0;width:100%;height:100%;display:block}
+.screen:has(.toon)::after{height:30%;background:linear-gradient(180deg,transparent,rgba(0,0,0,.35))}
+.toon .tw{animation:tw 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes tw{0%,100%{opacity:.25}50%{opacity:1}}
+.toon .moon{animation:moon 9s ease-in-out infinite alternate}
+@keyframes moon{to{transform:translate(-8px,6px)}}
+.toon .tlabel{font:600 13px var(--display);fill:#E7CB8C;letter-spacing:.04em}
+.toon .tlabel tspan{animation:dot 1.4s infinite}
+.toon .tlabel .d2{animation-delay:.2s}.toon .tlabel .d3{animation-delay:.4s}
+@keyframes dot{0%,100%{opacity:.2}50%{opacity:1}}
+.toon .tl{transform-box:fill-box;transform-origin:left center;animation:grow 6s cubic-bezier(.2,.8,.2,1) infinite}
+@keyframes grow{0%{transform:scaleX(0);opacity:1}12%{transform:scaleX(1)}88%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
+.toon .ph{animation:ph 3s linear infinite}
+@keyframes ph{from{transform:translateX(0)}to{transform:translateX(166px)}}
+.toon .spark{animation:spark 2.4s ease-in-out infinite}
+.toon .spark path{transform-box:fill-box;transform-origin:center;animation:spin 2.4s linear infinite}
+@keyframes spark{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes spin{to{transform:rotate(180deg) scale(1.15)}}
+.toon .rc{opacity:0;animation:fly 6s cubic-bezier(.3,.7,.3,1) infinite}
+@keyframes fly{0%{opacity:0;transform:translate(0,30px) scale(.3)}8%{opacity:1}55%{opacity:1;transform:translate(var(--x),var(--y)) rotate(var(--r)) scale(1.15)}75%,100%{opacity:0;transform:translate(var(--x),calc(var(--y) - 18px)) rotate(var(--r)) scale(1.15)}}
+.toon .sis{animation:sis 4s ease-in-out infinite alternate}
+@keyframes sis{to{transform:translateY(-2px)}}
+.toon .steam{opacity:0;animation:steam 3s ease-out infinite}
+.toon .s2{animation-delay:1.5s}
+@keyframes steam{0%{opacity:0;transform:translateY(4px)}30%{opacity:.8}100%{opacity:0;transform:translateY(-14px)}}
+.toon .badge text{font:700 13px var(--display);fill:#F6E3B0}
 .screen .subs{position:absolute;left:14px;right:14px;bottom:20%;text-align:center;font-family:var(--display);font-weight:800;font-size:22px;line-height:1.18;color:#fff;text-transform:uppercase;z-index:2;min-height:3.6em}
 .screen .subs span{transition:color .2s,background .2s;padding:0 3px;border-radius:5px}
 .screen .subs span.hot{background:var(--goldmetal);background-size:200% 100%;color:#1A1408}
@@ -427,7 +453,37 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       <div class="screen">
         <div class="bars"><i class="on"><span></span></i><i class="run"><span></span></i><i><span></span></i></div>
         <div class="acc"><img alt="" src="img/avatar.jpg">Медина</div>
-        <img class="shot" src="img/ekran.jpg" alt="">
+        <svg class="toon" viewBox="0 0 300 616" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3B0"/><stop offset=".5" stop-color="#C9A45E"/><stop offset="1" stop-color="#8A6A2F"/></linearGradient>
+            <linearGradient id="th" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9CF96"/><stop offset="1" stop-color="#B8924E"/></linearGradient>
+            <radialGradient id="tglow"><stop offset="0" stop-color="#E7CB8C" stop-opacity=".55"/><stop offset="1" stop-color="#E7CB8C" stop-opacity="0"/></radialGradient>
+          </defs>
+          <g fill="#F3E2B5"><circle class="tw" cx="175" cy="147" r="1.6" style="animation-delay:1.95s"/><circle class="tw" cx="47" cy="344" r="0.8" style="animation-delay:1.10s"/><circle class="tw" cx="39" cy="329" r="1" style="animation-delay:0.11s"/><circle class="tw" cx="232" cy="284" r="0.8" style="animation-delay:0.72s"/><circle class="tw" cx="227" cy="100" r="0.8" style="animation-delay:2.84s"/><circle class="tw" cx="41" cy="365" r="1.6" style="animation-delay:0.15s"/><circle class="tw" cx="123" cy="93" r="1" style="animation-delay:0.87s"/><circle class="tw" cx="83" cy="346" r="0.8" style="animation-delay:1.71s"/><circle class="tw" cx="102" cy="122" r="1" style="animation-delay:1.12s"/><circle class="tw" cx="290" cy="102" r="0.8" style="animation-delay:1.86s"/><circle class="tw" cx="264" cy="342" r="1.6" style="animation-delay:2.33s"/><circle class="tw" cx="248" cy="369" r="1.6" style="animation-delay:1.08s"/><circle class="tw" cx="137" cy="162" r="1" style="animation-delay:0.25s"/><circle class="tw" cx="163" cy="338" r="1.6" style="animation-delay:2.63s"/><circle class="tw" cx="239" cy="217" r="0.8" style="animation-delay:0.35s"/><circle class="tw" cx="224" cy="154" r="1.3" style="animation-delay:0.46s"/><circle class="tw" cx="260" cy="285" r="0.8" style="animation-delay:2.89s"/><circle class="tw" cx="49" cy="355" r="1.3" style="animation-delay:1.02s"/><circle class="tw" cx="189" cy="374" r="1.6" style="animation-delay:1.74s"/><circle class="tw" cx="243" cy="105" r="0.8" style="animation-delay:2.83s"/><circle class="tw" cx="252" cy="103" r="0.8" style="animation-delay:2.19s"/><circle class="tw" cx="168" cy="365" r="1.6" style="animation-delay:0.85s"/></g>
+          <g class="moon"><circle cx="262" cy="80" r="16" fill="url(#tg)"/><circle cx="269" cy="74" r="14.5" fill="#17150F"/></g>
+          <text class="tlabel" x="150" y="206" text-anchor="middle">ИИ монтирует<tspan class="d1">.</tspan><tspan class="d2">.</tspan><tspan class="d3">.</tspan></text>
+          <ellipse cx="150" cy="268" rx="130" ry="80" fill="url(#tglow)"/>
+          <g class="rcs" transform="translate(150 236)"><g class="rc" style="--x:-92px;--y:-112px;--r:-14deg;animation-delay:0.0s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:-46px;--y:-132px;--r:-6deg;animation-delay:1.2s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:0px;--y:-140px;--r:0deg;animation-delay:2.4s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:46px;--y:-132px;--r:6deg;animation-delay:3.6s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g><g class="rc" style="--x:92px;--y:-112px;--r:14deg;animation-delay:4.8s"><rect x="-13" y="-22" width="26" height="44" rx="5" fill="url(#tg)"/><path d="M-4 -7 L7 0 L-4 7 Z" fill="#1A1408"/></g></g>
+          <rect x="56" y="218" width="188" height="112" rx="9" fill="#100F0C" stroke="url(#tg)" stroke-width="2"/>
+          <rect x="66" y="228" width="74" height="32" rx="4" fill="#2A241A"/>
+          <path d="M66 260 L88 240 L100 250 L116 236 L140 260 Z" fill="#C9A45E" opacity=".85"/>
+          <circle cx="126" cy="238" r="4" fill="#F6E3B0"/>
+          <g class="spark" transform="translate(196 244)"><path d="M0 -12 C1 -4 4 -1 12 0 C4 1 1 4 0 12 C-1 4 -4 1 -12 0 C-4 -1 -1 -4 0 -12Z" fill="url(#tg)"/></g>
+          <rect class="tl" x="66" y="268" width="34" height="10" rx="2.5" fill="#C9A45E" style="animation-delay:0.00s"/><rect class="tl" x="104" y="268" width="22" height="10" rx="2.5" fill="#8C7A5C" style="animation-delay:0.18s"/><rect class="tl" x="130" y="268" width="40" height="10" rx="2.5" fill="#E7CB8C" style="animation-delay:0.36s"/><rect class="tl" x="174" y="268" width="26" height="10" rx="2.5" fill="#C9A45E" style="animation-delay:0.54s"/><rect class="tl" x="204" y="268" width="30" height="10" rx="2.5" fill="#8C7A5C" style="animation-delay:0.72s"/><rect class="tl" x="66" y="282" width="20" height="10" rx="2.5" fill="#6E8BB0" style="animation-delay:0.90s"/><rect class="tl" x="90" y="282" width="46" height="10" rx="2.5" fill="#7F9FC4" style="animation-delay:1.08s"/><rect class="tl" x="140" y="282" width="30" height="10" rx="2.5" fill="#6E8BB0" style="animation-delay:1.26s"/><rect class="tl" x="174" y="282" width="54" height="10" rx="2.5" fill="#9AB6D6" style="animation-delay:1.44s"/><rect class="tl" x="66" y="296" width="60" height="10" rx="2.5" fill="#7E6BB0" style="animation-delay:1.62s"/><rect class="tl" x="130" y="296" width="34" height="10" rx="2.5" fill="#9A86C9" style="animation-delay:1.80s"/><rect class="tl" x="168" y="296" width="64" height="10" rx="2.5" fill="#7E6BB0" style="animation-delay:1.98s"/>
+          <rect class="ph" x="66" y="264" width="2" height="46" fill="#F6E3B0"/>
+          <path d="M40 330 L260 330 L276 344 L24 344 Z" fill="#2A2620" stroke="#5A4A2E"/>
+          <g class="sis">
+            <path d="M34 616 C38 572 58 552 86 549 C114 552 134 572 138 616 Z" fill="#2A2520" stroke="#6B5530" stroke-width="1.5"/>
+            <path d="M86 492 C67 492 59 510 61 530 C57 546 51 558 47 572 C72 562 100 562 125 572 C121 558 115 546 111 530 C113 510 105 492 86 492 Z" fill="url(#th)"/>
+            <ellipse cx="86" cy="523" rx="13.5" ry="16.5" fill="#EAD3B2"/>
+            <circle cx="104" cy="585" r="6" fill="#EAD3B2"/>
+            <rect x="106" y="573" width="17" height="15" rx="4" fill="#F6EEDC" stroke="#C9A45E" stroke-width="1.5"/>
+            <path d="M123 577 q6 1 0 8" fill="none" stroke="#C9A45E" stroke-width="1.6"/>
+            <path class="steam s1" d="M111 567 q-4 -7 0 -12 q4 -6 0 -12" fill="none" stroke="#F3E2B5" stroke-width="1.6" stroke-linecap="round"/>
+            <path class="steam s2" d="M118 567 q-4 -7 0 -12 q4 -6 0 -12" fill="none" stroke="#F3E2B5" stroke-width="1.6" stroke-linecap="round"/>
+          </g>
+          <g class="badge" transform="translate(214 560)"><rect x="-58" y="-17" width="116" height="34" rx="17" fill="#1A1712" stroke="url(#tg)" stroke-width="1.5"/><text x="0" y="5" text-anchor="middle">готово: <tspan id="toonN">0</tspan> рилс</text></g>
+        </svg>
         <p class="subs" id="subs"></p>
       </div>
       <div class="bubble c" id="bc">РИЛС</div>
@@ -790,6 +846,11 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
     const k = (e.clientX / innerWidth - .5);
     phone.style.setProperty('--ry', (k * 18).toFixed(2) + 'deg');
   });
+
+  /* мультик в телефоне: счётчик готовых рилс */
+  const tn = document.getElementById('toonN');
+  if (tn && !reduce) { let n = 0; setInterval(() => { n = n % 5 + 1; tn.textContent = n; }, 1200); }
+  else if (tn) tn.textContent = 5;
 
   /* субтитры в телефоне: слово подсвечивается под голос */
   const lines = [['Этот','рилс','сделал','ИИ'], ['Без','съёмки','и','монтажа'], ['150','рилс','в','месяц'], ['Пиши','РИЛС','в','комментариях']];
