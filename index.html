@@ -414,6 +414,24 @@ section{padding-block:clamp(64px,8vw,108px)}
 .skills div:hover{background:var(--plate)}
 .choose{columns:2;column-gap:44px}
 @media (max-width:760px){.choose{columns:1}}
+/* охваты */
+.views-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:stretch}
+.vw{border-radius:22px;background:var(--plate);padding:26px 28px;display:flex;flex-direction:column;gap:14px}
+.vw .acc{margin:0;font-family:var(--display);font-size:20px;color:var(--gold-hi);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline}
+.vw .acc span{font-family:var(--body);font-size:14px;color:var(--soft)}
+.vw ul{list-style:none;margin:0;padding:0;display:grid}
+.vw li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.vw li b{font-family:var(--display);font-size:20px;color:var(--text);white-space:nowrap}
+.vw-note{margin:auto 0 0;color:var(--soft);font-size:15px}
+@media (max-width:760px){.views-grid{grid-template-columns:1fr}}
+/* кнопка «Выбрать тариф», всегда под рукой */
+.sticky-cta{position:fixed;z-index:55;right:24px;bottom:24px;padding:15px 26px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:16px;color:#1A1408;text-decoration:none;background:var(--goldmetal);background-size:200% 100%;box-shadow:0 14px 40px -10px rgba(0,0,0,.8);opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .3s,transform .3s}
+.sticky-cta.on{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:640px){.sticky-cta{left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));text-align:center}}
+@media (prefers-reduced-motion:reduce){.sticky-cta{transition:none}}
+.vw-big{margin-top:auto;display:grid;gap:6px;padding-top:10px}
+.vw-big b{font-family:var(--display);font-size:clamp(56px,7vw,92px);line-height:1;background:var(--goldmetal);-webkit-background-clip:text;background-clip:text;color:transparent}
+.vw-big span{color:var(--soft);font-size:15px;max-width:34ch}
 </style>
 
 <div class="grain" aria-hidden="true"></div>
@@ -439,7 +457,7 @@ section{padding-block:clamp(64px,8vw,108px)}
       <a class="btn" href="#zapis">Встать в предзапись
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a class="btn ghost" href="#tarify">Посмотреть тарифы</a>
-      <p class="free"><b>5 уроков</b> за 2 недели, доступ на 3 месяца</p>
+      <p class="free">Доступ к урокам на <b>4 месяца</b></p>
     </div>
   </div>
   <div class="stage" aria-hidden="true">
@@ -462,7 +480,7 @@ section{padding-block:clamp(64px,8vw,108px)}
   <div class="wrap">
     <div class="head rise"><h2>Почему рилс выходят редко и&nbsp;как это исправить</h2></div>
     <div class="duo rise">
-      <div class="side"><img class="side-img" src="img/pochemu-1.jpg" alt="Песочные часы и телефон с бесконечной загрузкой" loading="lazy" width="900" height="675"><p class="tag">С монтажёром</p><h3>Ждёшь и правишь</h3><p>Для каждого ролика нужно найти монтажёра, объяснить задумку, дождаться результата и несколько раз отправить правки. Рилс выходят реже, чем хотелось бы.</p></div>
+      <div class="side"><img class="side-img" src="img/pochemu-1.jpg" alt="Песочные часы и телефон с бесконечной загрузкой" loading="lazy" width="900" height="675"><p class="tag">С монтажёром</p><h3>Дорого и долго</h3><p>Один рилс у монтажёра стоит 1&nbsp;000–3&nbsp;000&nbsp;₽. 150 роликов в месяц обойдутся примерно в 200&nbsp;000&nbsp;₽. А ещё нужно объяснить задумку, ждать и несколько раз отправлять правки.</p></div>
       <div class="side"><img class="side-img" src="img/pochemu-2.jpg" alt="Ноутбук с длинной дорожкой монтажа, чай и часы около полуночи" loading="lazy" width="900" height="675"><p class="tag">Сама</p><h3>Один ролик на весь вечер</h3><p>Если монтировать самой, один рилс может занять весь вечер. На регулярные публикации просто не хватает сил.</p></div>
       <div class="side"><img class="side-img" src="img/pochemu-3.jpg" alt="Из ноутбука золотым потоком вылетают готовые рилс" loading="lazy" width="900" height="675"><p class="tag">Как исправить</p><h3>Научиться монтировать с помощью ИИ</h3><p>На интенсиве ты поставишь на компьютер готовый набор, где анимация и оформление уже предусмотрены. Ты берёшь свои материалы или описываешь идею для рисованного видео, а потом меняешь результат обычными словами.</p></div>
     </div>
@@ -540,6 +558,24 @@ section{padding-block:clamp(64px,8vw,108px)}
   </div>
 </section>
 
+<section class="views" id="ohvaty">
+  <div class="wrap">
+    <div class="head rise"><h2>Сколько смотрят такие рилс</h2><p>Ролики, собранные с ИИ за вечер, в блогах, с которыми я работаю. Цифры из Инстаграма на 30 октября.</p></div>
+    <div class="views-grid">
+      <article class="vw">
+        <p class="acc">@utrosestram<span>2,5 тыс. подписчиков</span></p>
+        <ul><li><span>«Зашла на 5 минут…»</span><b>5 694</b></li><li><span>«Ты в убытке, если…»</span><b>3 892</b></li></ul>
+        <div class="vw-big"><b>×2,3</b><span>столько просмотров у «Зашла на 5 минут…» по сравнению с числом подписчиков блога</span></div>
+      </article>
+      <article class="vw">
+        <p class="acc">@detisestram<span>28 тыс. подписчиков</span></p>
+        <ul><li><span>«Это же просто детские песенки…»</span><b>9 584</b></li><li><span>«Сам выберет свой путь?»</span><b>9 549</b></li><li><span>«Травма!!!»</span><b>7 794</b></li><li><span>«Без гаджетов уже никак?»</span><b>5 821</b></li><li><span>«Он же ещё маленький»</span><b>5 338</b></li></ul>
+        <p class="vw-note">Пять роликов подряд, каждый от 5 тысяч просмотров.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="obo-mne">
   <div class="wrap">
     <div class="about rise">
@@ -602,6 +638,8 @@ section{padding-block:clamp(64px,8vw,108px)}
         <p>Один рилс у монтажёра стоит 1 000–3 000 ₽. С подпиской на нейросеть один рилс выходит около 75 ₽. Расчёт чуть ниже, можно подставить свои цифры.</p></details>
       <details><summary>«Я уже проходила обучение по рилс»<span class="pm"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
         <p>Здесь не «снимай тренды», а готовый набор, который ставится на твой компьютер и собирает ролики за тебя: из твоих кадров и в рисованных стилях, без лица и без музыки.</p></details>
+      <details><summary>«Сделаю рилс, а он мне не понравится, и я потрачу ещё пять вечеров на правки»<span class="pm"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
+        <p>Править ролик ты будешь словами, а не на монтажной дорожке: «сделай титры крупнее», «замени третий кадр», «спокойнее музыку». ИИ переделывает за пару минут. Этому посвящён целый урок, а в старших тарифах я сама смотрю твои ролики и подсказываю, что поправить.</p></details>
       <details><summary>«А если ИИ сделает не по шариату»<span class="pm"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span></summary>
         <p>В набор встроены правила: женщины только нарисованные и без лиц, аккуратно с религиозными текстами, честные цифры. Каждый ролик ты смотришь перед публикацией.</p></details>
     </div>
@@ -667,7 +705,7 @@ section{padding-block:clamp(64px,8vw,108px)}
         <div class="rowkv"><span>Уроки</span><span>5 практических уроков и задания, на которых делаешь свои ролики</span></div>
         <div class="rowkv"><span>Общение</span><span>общая болталка участниц для всех тарифов</span></div>
         <div class="rowkv"><span>Обратная связь</span><span>месяц в тарифах «С моей поддержкой» и «Лично со мной»</span></div>
-        <div class="rowkv"><span>Доступ</span><span>3 месяца</span></div>
+        <div class="rowkv"><span>Доступ</span><span>4 месяца</span></div>
       </div>
       <div class="sheet">
         <h3>Сколько стоят инструменты</h3>
@@ -723,7 +761,7 @@ section{padding-block:clamp(64px,8vw,108px)}
           <tr><td>Готовый набор с материалами и шаблонами</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Общая болталка участниц</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Бонус: гайд «Как установить Claude»</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
-          <tr><td>Доступ к материалам на 3&nbsp;месяца</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
+          <tr><td>Доступ к материалам на 4&nbsp;месяца</td><td class="yes">✓</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Учебная группа со мной на месяц</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Моя обратная связь по заданиям и роликам</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
           <tr><td>Помощь с установкой и инструментами в группе</td><td class="no">—</td><td class="mid yes">✓</td><td class="yes">✓</td></tr>
@@ -738,7 +776,7 @@ section{padding-block:clamp(64px,8vw,108px)}
     </div>
     <div class="plans-sm">
       <div class="plan-sm"><p class="t">Сама</p><p class="p">2&nbsp;990&nbsp;₽</p><p class="w">Учишься в своём темпе</p>
-        <ul><li>5 практических уроков за 2&nbsp;недели</li><li>готовый набор с материалами и шаблонами</li><li>общая болталка участниц</li><li>бонус: гайд «Как установить Claude»</li><li>доступ к материалам на 3&nbsp;месяца</li></ul><a href="#zapis">В предзапись</a></div>
+        <ul><li>5 практических уроков за 2&nbsp;недели</li><li>готовый набор с материалами и шаблонами</li><li>общая болталка участниц</li><li>бонус: гайд «Как установить Claude»</li><li>доступ к материалам на 4&nbsp;месяца</li></ul><a href="#zapis">В предзапись</a></div>
       <div class="plan-sm mid"><p class="t">С моей поддержкой</p><p class="p">6&nbsp;990&nbsp;₽</p><p class="w">Показываешь мне ролики и задаёшь вопросы</p>
         <ul><li>всё из тарифа «Сама»</li><li>учебная группа со мной на месяц</li><li>моя обратная связь по заданиям и роликам</li><li>помощь с установкой и инструментами в группе</li><li>бонус-урок: конкуренты и 30 сценариев</li></ul><a href="#zapis">В предзапись</a></div>
       <div class="plan-sm"><p class="t">Лично со мной</p><p class="p">29&nbsp;900&nbsp;₽</p><p class="w">Проходим весь путь вместе</p>
@@ -770,6 +808,7 @@ section{padding-block:clamp(64px,8vw,108px)}
   </div>
 </section>
 
+<a class="sticky-cta" href="#tarify" aria-hidden="true" tabindex="-1">Выбрать тариф</a>
 <section class="final" id="zapis">
   <div class="wrap">
     <img class="hero-img" src="img/hijab.jpg" alt="" loading="lazy">
@@ -1332,4 +1371,14 @@ else {
   new IntersectionObserver(es => { vis = es[0].isIntersecting; cancelAnimationFrame(raf); if (vis && !document.hidden) raf = requestAnimationFrame(loop); }).observe(cv);
   document.addEventListener('visibilitychange', () => { cancelAnimationFrame(raf); if (!document.hidden && vis) raf = requestAnimationFrame(loop); });
 }
+</script>
+
+<script>
+(()=>{const b=document.querySelector('.sticky-cta');if(!b)return;
+const hero=document.querySelector('.hero'),hide=[document.getElementById('tarify'),document.getElementById('zapis')];
+const seen=new Set();let past=false;
+const upd=()=>{const on=past&&seen.size===0;b.classList.toggle('on',on);b.setAttribute('aria-hidden',on?'false':'true');b.tabIndex=on?0:-1};
+new IntersectionObserver(e=>{past=!e[0].isIntersecting;upd()}).observe(hero);
+const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));upd()});
+hide.forEach(el=>el&&io.observe(el));})();
 </script>
