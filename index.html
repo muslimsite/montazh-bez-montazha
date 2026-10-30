@@ -5,7 +5,7 @@
 <meta name="description" content="Интенсив для сестёр: ИИ разбирает страницу и конкурентов, пишет сценарии и собирает 5 рилс за вечер. Для экспертов, монтажёров и начинающих.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tektur:wght@400;500;700;800&family=Onest:wght@400;500;700&display=swap">
 <style>
 /* Мир страницы: ночной графит, кованый металл и приглушённое золото, пыль в луче света.
    Layout: герой во весь экран со сценой и металлическим телефоном, дальше одна колонка 1120px; программа как кадры сторис.
@@ -16,7 +16,7 @@
   --silver-1:#F4F3F0; --silver-2:#A9ABAF; --silver-3:#5C5E62;
   --gold:#C9A45E; --gold-hi:#E7CB8C; --gold-deep:#8C6A2E;
   --display:"Tektur","Arial Narrow",system-ui,sans-serif;
-  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   --metal:linear-gradient(115deg,var(--silver-3) 0%,var(--silver-1) 22%,var(--silver-2) 40%,var(--silver-1) 58%,var(--silver-3) 80%,var(--silver-2) 100%);
   --goldmetal:linear-gradient(115deg,var(--gold-deep) 0%,var(--gold-hi) 30%,var(--gold) 55%,var(--gold-hi) 75%,var(--gold-deep) 100%);
   color-scheme:dark;
@@ -209,7 +209,6 @@ details p{padding:0 28px 26px;color:var(--soft);max-width:64ch}
 .frame{position:relative;border-radius:26px;padding:46px 24px 26px;min-height:360px;display:flex;flex-direction:column;gap:14px;overflow:hidden;
   background:linear-gradient(170deg,var(--plate-2) 0%,var(--plate) 60%,#1B1A17 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.06);
   transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s}
-.frame:hover{transform:translateY(-4px) rotate(-.4deg);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 30px 60px -30px rgba(0,0,0,.9)}
 .frame .seg{position:absolute;top:16px;left:18px;right:18px;display:flex;gap:4px}
 .frame .seg i{flex:1;height:3px;border-radius:2px;background:rgba(255,255,255,.14)}
 .frame .seg i.on{background:var(--silver-2)}
@@ -245,7 +244,6 @@ details p{padding:0 28px 26px;color:var(--soft);max-width:64ch}
 /* картинки блоков программы */
 .vis{position:relative;margin:64px 0 22px;border-radius:30px;overflow:hidden;aspect-ratio:16/7;background:#000}
 .vis img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
-.vis:hover img{transform:scale(1.09)}
 .vis::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85) 0%,rgba(0,0,0,.35) 45%,transparent 70%)}
 .vis figcaption{position:absolute;left:clamp(22px,4vw,48px);bottom:clamp(22px,4vw,44px);z-index:1;display:grid;gap:8px;max-width:46%}
 .vis figcaption b{font-family:var(--display);font-size:15px;font-weight:500;color:var(--gold-hi)}
@@ -411,6 +409,11 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
 /* под тарифами без пустот */
 .choose{max-width:none;margin-top:18px;padding:22px 26px;border-radius:22px;border:1px solid rgba(214,178,94,.28);background:linear-gradient(180deg,rgba(214,178,94,.07),rgba(214,178,94,.02))}
 section{padding-block:clamp(64px,8vw,108px)}
+/* по правилам frontend-design: одно движение (мультик в шапке), без «выезжающих» блоков и прыгающих карточек */
+.rise{animation:none!important}
+.skills div:hover{background:var(--plate)}
+.choose{columns:2;column-gap:44px}
+@media (max-width:760px){.choose{columns:1}}
 </style>
 
 <div class="grain" aria-hidden="true"></div>
@@ -436,7 +439,7 @@ section{padding-block:clamp(64px,8vw,108px)}
       <a class="btn" href="#zapis">Встать в предзапись
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 9h11M10 4.5 14.5 9 10 13.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <a class="btn ghost" href="#tarify">Посмотреть тарифы</a>
-      <p class="free"><b>5 уроков</b> · 2 недели · доступ 3 месяца</p>
+      <p class="free"><b>5 уроков</b> за 2 недели, доступ на 3 месяца</p>
     </div>
   </div>
   <div class="stage" aria-hidden="true">
@@ -639,7 +642,7 @@ section{padding-block:clamp(64px,8vw,108px)}
     <p class="styles-note rise">Можно работать со своими кадрами и пробовать рисованные стили: акварель, графику, тушь, бумажный театр, витраж, человечков в хиджабе.</p>
     <figure class="vis rise"><img src="img/bonus.jpg" alt="Лупа над сеткой рилс и стопка золотых карточек-сценариев" loading="lazy"><figcaption><b>Бонус</b><h3>Конкуренты и 30 сценариев</h3></figcaption></figure>
     <div class="frames one">
-    <article class="frame rise bonus wide"><div class="seg"><i class="now"></i></div><p class="n">Бонус-урок · в тарифах «С моей поддержкой» и «Лично со мной»</p><h4>Как с помощью ИИ разобрать конкурентов и собрать 30 сценариев для своего продукта</h4>
+    <article class="frame rise bonus wide"><div class="seg"><i class="now"></i></div><p class="n">Бонус-урок в тарифах «С моей поддержкой» и «Лично со мной»</p><h4>Как с помощью ИИ разобрать конкурентов и собрать 30 сценариев для своего продукта</h4>
       <p class="txt">Разберём страницы и рилс конкурентов: как они представляют продукт, какие темы используют и на какие вопросы аудитории отвечают.</p>
       <p class="txt">По итогам разбора подготовим идеи для твоей страницы и 30 сценариев под твой продукт: чтобы знакомить с тобой, показывать ценность твоей работы, отвечать на сомнения и приглашать к покупке.</p>
       <p class="res"><svg class="spark" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1c.7 6 4.9 10.3 11 11-6.1.7-10.3 5-11 11-.7-6-4.9-10.3-11-11 6.1-.7 10.3-5 11-11z"/></svg>30 заготовок сценариев с понятной задачей у каждого. Ты доработаешь их под свои примеры, факты и речь</p></article>
@@ -780,7 +783,7 @@ section{padding-block:clamp(64px,8vw,108px)}
 </section>
 
 </main>
-<footer><div class="wrap">Интенсив «Монтаж без монтажа» · Медина · Telegram @O_official</div></footer>
+<footer><div class="wrap">Интенсив «Монтаж без монтажа». Медина, Telegram @O_official</div></footer>
 
 <script>
 (() => {
