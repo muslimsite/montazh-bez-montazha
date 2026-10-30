@@ -170,6 +170,19 @@ main{background:
 .about-nums b{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);white-space:nowrap;background:var(--goldmetal);-webkit-background-clip:text;background-clip:text;color:transparent}
 .about-nums span{color:var(--soft);font-size:15px}
 @media (max-width:860px){.about{grid-template-columns:1fr;gap:28px}.about-img{max-width:280px}.about-nums{grid-template-columns:1fr}}
+.sites{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.site{display:grid;border-radius:22px;overflow:hidden;background:var(--plate);text-decoration:none;color:var(--text);box-shadow:inset 0 1px 0 rgba(255,255,255,.06);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.site:hover{transform:translateY(-4px)}
+.site img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top;display:block}
+.site span{padding:16px 20px 20px;display:grid;gap:4px;color:var(--soft);font-size:15px}
+.site b{font-family:var(--display);font-size:17px;color:var(--text)}
+.rv-grid{columns:3 280px;column-gap:18px}
+.rv-card{break-inside:avoid;margin:0 0 18px;border-radius:22px;background:var(--plate);padding:24px;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.rv-card blockquote{margin:0;font-size:17px;line-height:1.5}
+.rv-card blockquote::before{content:"«";color:var(--gold-hi);font-family:var(--display);font-size:28px;line-height:0;margin-right:4px;vertical-align:-6px}
+.rv-card figcaption{margin-top:12px;font-size:14px;color:var(--gold-hi)}
+@media (max-width:860px){.sites{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.sites{grid-template-columns:1fr}}
 .qa{display:grid;gap:10px;max-width:860px}
 details{border-radius:20px;background:var(--plate);box-shadow:inset 0 1px 0 rgba(255,255,255,.05);overflow:hidden}
 summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:24px 28px;font-family:var(--display);font-size:clamp(17px,2vw,21px);font-weight:500}
@@ -389,6 +402,7 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
   <a class="hide-sm" href="#programma">Программа</a>
   <a class="hide-sm" href="#raboty">Работы</a>
   <a class="hide-sm" href="#obo-mne">Обо мне</a>
+  <a class="hide-sm" href="#saity">Сайты</a>
   <a class="hide-sm" href="#tarify">Тарифы</a>
   <a class="go" href="#zapis">Предзапись</a>
 </nav>
@@ -521,6 +535,36 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       <div><b>3+ года</b><span>в онлайне с крупными блогерами</span></div>
       <div><b>2 обучения</b><span>по нейросетям у топов рынка</span></div>
       <div><b>100+</b><span>материалов уже сделала с ИИ: сайты, боты, гайды, презентации к урокам, аватарки</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="saity">
+  <div class="wrap">
+    <div class="head rise"><h2>Мои сайты</h2><p>Сделаны с ИИ для курсов и эфиров крупных блогов. Нажми, чтобы открыть.</p></div>
+    <div class="sites rise">
+      <a class="site" href="https://muslimsite.github.io/deti-sestram/" target="_blank" rel="noopener"><img src="img/saity/deti-sestram.jpg" alt="Сайт «Воспитание детей в Исламе»" loading="lazy" width="1000" height="625"><span><b>Воспитание детей в Исламе</b>курс Солихи умм Муса</span></a>
+      <a class="site" href="https://muslimsite.github.io/distciplina/" target="_blank" rel="noopener"><img src="img/saity/distciplina.jpg" alt="Сайт «Дисциплина от А до Я»" loading="lazy" width="1000" height="625"><span><b>Дисциплина от А до Я</b>интенсив Солихи умм Муса</span></a>
+      <a class="site" href="https://muslimsite.github.io/praktikum/" target="_blank" rel="noopener"><img src="img/saity/praktikum.jpg" alt="Сайт «Заготовки без целого дня на кухне»" loading="lazy" width="1000" height="625"><span><b>Заготовки без целого дня на кухне</b>практикум Хадиджи умм Ильяс</span></a>
+      <a class="site" href="https://muslimsite.github.io/systema-zagotovok/" target="_blank" rel="noopener"><img src="img/saity/systema-zagotovok.jpg" alt="Сайт «Курс по заготовкам и заморозке»" loading="lazy" width="1000" height="625"><span><b>Курс по заготовкам и заморозке</b>курс Хадиджи умм Ильяс</span></a>
+      <a class="site" href="https://muslimsite.github.io/efir-menu/" target="_blank" rel="noopener"><img src="img/saity/efir-menu.jpg" alt="Сайт «Письмо-приглашение на эфир»" loading="lazy" width="1000" height="625"><span><b>Письмо-приглашение на эфир</b>эфир Хадиджи умм Ильяс, письмо открывается по нажатию</span></a>
+      <a class="site" href="https://muslimsite.github.io/ummronny/" target="_blank" rel="noopener"><img src="img/saity/ummronny.jpg" alt="Сайт «Маркетинг 2026»" loading="lazy" width="1000" height="625"><span><b>Маркетинг 2026</b>эфир Юлии умм Ронни</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="otzyvy">
+  <div class="wrap">
+    <div class="head rise"><h2>Что пишут</h2><p>Отзывы на сайты, презентации и мои уроки по вайб-кодингу.</p></div>
+    <div class="rv-grid rise">
+      <figure class="rv-card"><blockquote>Какая красота, ухти 😍 ещё такая интерактивная: нажимаешь на письмо, чтобы открыть. Вообще пушка 🚀 Аллахумма барик</blockquote><figcaption>Про сайт-приглашение</figcaption></figure>
+      <figure class="rv-card"><blockquote>Афигеть уровень, Аллахумма барик 🔥</blockquote><figcaption>Про сайт-приглашение</figcaption></figure>
+      <figure class="rv-card"><blockquote>Очень красиво 😍 мои глаза получили удовольствие</blockquote><figcaption>Про сайт-приглашение</figcaption></figure>
+      <figure class="rv-card"><blockquote>Это ты презентации делаешь, даааа? Классные, я всё хотела спросить, кто делает 🔝</blockquote><figcaption>Про презентации</figcaption></figure>
+      <figure class="rv-card"><blockquote>На канале Солихи о воспитании везде всё так красиво стало</blockquote><figcaption>Про оформление курса</figcaption></figure>
+      <figure class="rv-card"><blockquote>Да, сама по урокам Медины. БаракаЛлаху фики, Медина 🌸</blockquote><figcaption>Ученица по вайб-кодингу</figcaption></figure>
+      <figure class="rv-card"><blockquote>АльхамдулиЛлях. Понятно всё объяснили ❤️</blockquote><figcaption>Ученица по вайб-кодингу</figcaption></figure>
+      <figure class="rv-card"><blockquote>Мне нравится этот отчёт заполнять. Прям приятный отчёт, циферки всякие. И вообще удобный он какой-то, интересный</blockquote><figcaption>Менеджер про бота с отчётами</figcaption></figure>
     </div>
   </div>
 </section>
