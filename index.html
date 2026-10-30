@@ -239,7 +239,7 @@ input[type=range]{width:100%;accent-color:var(--gold);height:28px}
 .seg3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .seg3 button{font:600 15px var(--body);padding:12px 6px;border:0;border-radius:12px;background:var(--plate-2);color:var(--text);cursor:pointer;transition:background .3s}
 .seg3 button.on{background:var(--goldmetal);color:#1A1408}
-.controls .note{font-size:14px;color:var(--dim)}
+.controls .note,.sheet .note{font-size:14px;color:var(--dim)}
 .out{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;border-radius:26px;overflow:hidden}
 .out .cell{background:var(--plate);padding:24px;display:grid;gap:6px;align-content:start}
 .out .cell span{color:var(--soft);font-size:15px}
@@ -569,8 +569,10 @@ footer{padding-block:30px;color:var(--dim);font-size:14px;text-align:center}
       <div class="sheet">
         <h3>Сколько стоят инструменты</h3>
         <p>Говорю заранее, чтобы не было сюрпризов.</p>
-        <div class="rowkv"><span>Нейросеть Claude</span><span>от $20 для старта, $100 для потока</span></div>
-        <div class="rowkv"><span>Голос ElevenLabs</span><span>от $5 до $22</span></div>
+        <div class="rowkv"><span>Нейросеть Claude</span><span>$20 для старта (≈&nbsp;1&nbsp;800&nbsp;₽), $100 для потока (≈&nbsp;9&nbsp;000&nbsp;₽) в&nbsp;месяц</span></div>
+        <div class="rowkv"><span>Голос ElevenLabs</span><span>от $5 до $22 (≈&nbsp;450–2&nbsp;000&nbsp;₽) в&nbsp;месяц</span></div>
+        <div class="rowkv"><span>Для участниц из России</span><span>ещё около 2&nbsp;000&nbsp;₽ (≈&nbsp;$22) один раз. Подробно расскажу на интенсиве</span></div>
+        <p class="note">Рубли посчитаны примерно, по курсу около 90&nbsp;₽ за доллар.</p>
       </div>
     </div>
   </div>
